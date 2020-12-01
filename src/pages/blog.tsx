@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
-import { Header, Grid, Card, List, Container, Feed, Segment, Comment } from "semantic-ui-react";
+import { Header, Grid, Card, List, Container, Feed, Segment, Comment, Label } from "semantic-ui-react";
 import { MarkdownRemarkConnection, ImageSharp } from "../graphql-types";
 import BlogTitle from "../components/BlogTitle";
 import TagsCard from "../components/TagsCard/TagsCard";
@@ -35,17 +35,13 @@ const BlogPage = (props: BlogProps) => {
         const avatar = frontmatter.author.avatar.children[0] as ImageSharp;
         const cover = get(frontmatter, "image.children.0.fixed", {});
         const updatedDate = Utils.formatDate(frontmatter.updatedDate);
+        const tags = frontmatter.tags
+          .map((tag) => <Label key={tag}><Link to={`/blog/tags/${tag}/`}>{tag}</Link></Label>);
 
         const extra = (
-          <Comment.Group>
-            <Comment>
-              <Comment.Content>
-                <Comment.Metadata style={{ margin: 0 }}>
-                  {updatedDate} - {timeToRead} min read
-              </Comment.Metadata>
-              </Comment.Content>
-            </Comment>
-          </Comment.Group>
+          <Card.Meta>
+            <span style={{ fontSize: '8pt' }} className='date'> {updatedDate}</span>
+          </Card.Meta>
         );
 
         const description = (
@@ -60,12 +56,12 @@ const BlogPage = (props: BlogProps) => {
           <Card key={slug}
             fluid
             header={frontmatter.title}
-            extra={extra}
-            description={description}
+            description={tags}
+            meta={extra}
           />
         );
       })}
-    </Container>
+    </Container >
   );
 
   return (
