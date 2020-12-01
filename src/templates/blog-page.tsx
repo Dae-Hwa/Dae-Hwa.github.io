@@ -35,6 +35,7 @@ query TemplateBlogPage($skip: Int) {
           slug
         }
         frontmatter {
+          tags
           title
           updatedDate(formatString: "DD MMMM, YYYY")
           image {

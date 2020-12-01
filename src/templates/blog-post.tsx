@@ -5,7 +5,7 @@ import { Header, Container, Segment, Icon, Label, Button, Grid, Card, Image, Ite
 import { MarkdownRemark, ImageSharp, MarkdownRemarkConnection, Site } from "../graphql-types";
 import BlogTitle from "../components/BlogTitle";
 import { DiscussionEmbed } from "disqus-react";
-import {withLayout, LayoutProps} from "../components/Layout";
+import { withLayout, LayoutProps } from "../components/Layout";
 import { graphql } from "gatsby";
 
 interface BlogPostProps extends LayoutProps {
@@ -58,7 +58,7 @@ const BlogPostPage = (props: BlogPostProps) => {
       );
     });
 
-  const cover = get(frontmatter, "image.children.0.fixed", {} );
+  const cover = get(frontmatter, "image.children.0.fixed", {});
   return (
     <Container>
       <BlogTitle />
@@ -96,7 +96,7 @@ const BlogPostPage = (props: BlogPostProps) => {
         && props.data.site.siteMetadata
         && props.data.site.siteMetadata.disqus
         && <Segment vertical>
-            <DiscussionEmbed shortname={props.data.site.siteMetadata.disqus} config={{}}/>
+          <DiscussionEmbed shortname={props.data.site.siteMetadata.disqus} config={{}} />
         </Segment>
       }
       <Segment vertical>
@@ -171,6 +171,7 @@ export const pageQuery = graphql`
         }
         timeToRead
         frontmatter {
+          tags
           title
           image {
             children {
