@@ -7,7 +7,7 @@ import BlogTitle from "../components/BlogTitle";
 import TagsCard from "../components/TagsCard/TagsCard";
 import BlogPagination from "../components/BlogPagination/BlogPagination";
 import { get } from "lodash";
-import {withLayout, LayoutProps} from "../components/Layout";
+import { withLayout, LayoutProps } from "../components/Layout";
 import { MarkdownRemark } from "../graphql-types";
 
 interface BlogProps extends LayoutProps {
@@ -29,7 +29,7 @@ const BlogPage = (props: BlogProps) => {
   // TODO export posts in a proper component
   const Posts = (
     <Container>
-      {posts.map(({ node }: {node: MarkdownRemark}) => {
+      {posts.map(({ node }: { node: MarkdownRemark }) => {
         const { frontmatter, timeToRead, fields: { slug }, excerpt } = node;
         const avatar = frontmatter.author.avatar.children[0] as ImageSharp;
         const cover = get(frontmatter, "image.children.0.fixed", {});
@@ -37,10 +37,6 @@ const BlogPage = (props: BlogProps) => {
         const extra = (
           <Comment.Group>
             <Comment>
-              <Comment.Avatar
-                src={avatar.fixed.src}
-                srcSet={avatar.fixed.srcSet}
-              />
               <Comment.Content>
                 <Comment.Author style={{ fontWeight: 400 }}>
                   {frontmatter.author.id}
@@ -64,7 +60,6 @@ const BlogPage = (props: BlogProps) => {
         return (
           <Card key={slug}
             fluid
-            image={cover}
             header={frontmatter.title}
             extra={extra}
             description={description}
