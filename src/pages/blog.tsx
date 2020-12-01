@@ -9,6 +9,7 @@ import BlogPagination from "../components/BlogPagination/BlogPagination";
 import { get } from "lodash";
 import { withLayout, LayoutProps } from "../components/Layout";
 import { MarkdownRemark } from "../graphql-types";
+import Utils from "../common/Utils"
 
 interface BlogProps extends LayoutProps {
   data: {
@@ -33,16 +34,14 @@ const BlogPage = (props: BlogProps) => {
         const { frontmatter, timeToRead, fields: { slug }, excerpt } = node;
         const avatar = frontmatter.author.avatar.children[0] as ImageSharp;
         const cover = get(frontmatter, "image.children.0.fixed", {});
+        const updatedDate = Utils.formatDate(frontmatter.updatedDate);
 
         const extra = (
           <Comment.Group>
             <Comment>
               <Comment.Content>
-                <Comment.Author style={{ fontWeight: 400 }}>
-                  {frontmatter.author.id}
-                </Comment.Author>
                 <Comment.Metadata style={{ margin: 0 }}>
-                  {frontmatter.updatedDate} - {timeToRead} min read
+                  {updatedDate} - {timeToRead} min read
               </Comment.Metadata>
               </Comment.Content>
             </Comment>
