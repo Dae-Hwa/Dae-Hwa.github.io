@@ -34,6 +34,7 @@ query TemplateTagPage($tag: String) {
           slug
         }
         frontmatter {
+          tags
           title
           updatedDate(formatString: "DD MMMM, YYYY")
           image {

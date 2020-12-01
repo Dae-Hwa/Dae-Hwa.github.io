@@ -121,6 +121,7 @@ query PageBlog {
           slug
         }
         frontmatter {
+          tags
           title
           updatedDate(formatString: "DD MMMM, YYYY")
           image {
