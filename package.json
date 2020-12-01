@@ -27,6 +27,7 @@
     "@graphql-codegen/cli": "^1.9.0",
     "@graphql-codegen/typescript": "^1.2.0",
     "babel-eslint": "^10.0.1",
+    "bl": "^4.0.3",
     "change-case": "^3.1.0",
     "codeclimate-test-reporter": "^0.5.1",
     "disqus-react": "^1.0.5",
