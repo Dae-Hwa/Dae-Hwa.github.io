@@ -58,6 +58,7 @@ const BlogPage = (props: BlogProps) => {
             header={frontmatter.title}
             description={tags}
             meta={extra}
+            href={slug}
           />
         );
       })}
