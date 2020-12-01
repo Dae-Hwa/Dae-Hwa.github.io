@@ -11,33 +11,24 @@ interface TagsCardProps extends React.HTMLProps<HTMLDivElement> {
 
 export default (props: TagsCardProps) => {
   return (
-    <Card>
-      <Card.Content>
-        <Card.Header>
-          Tags
-        </Card.Header>
-      </Card.Content>
-      <Card.Content>
-        <List>
-          {props.tags.map((tag) => {
-            const isActive = tag.fieldValue === props.tag;
-            const activeStyle = {
-              fontWeight: "700",
-            };
-            const tagLink = isActive ? `/blog` : `/blog/tags/${tag.fieldValue}/`;
-            return (
-              <List.Item as="span" key={tag.fieldValue}>
-                <List.Icon name="tag" color={isActive ? "blue" : null} />
-                <List.Content style={isActive ? activeStyle : null}>
-                  <props.Link to={tagLink}>
-                    {tag.fieldValue} ({tag.totalCount})
+    <List horizontal>
+      {props.tags.map((tag) => {
+        const isActive = tag.fieldValue === props.tag;
+        const activeStyle = {
+          fontWeight: "700",
+        };
+        const tagLink = isActive ? `/blog` : `/blog/tags/${tag.fieldValue}/`;
+        return (
+          <List.Item as="span" key={tag.fieldValue}>
+            <List.Icon name="tag" color={isActive ? "grey" : null} />
+            <List.Content style={isActive ? activeStyle : null}>
+              <props.Link to={tagLink}>
+                {tag.fieldValue} ({tag.totalCount})
                   </props.Link>
-                </List.Content>
-              </List.Item>
-            );
-          })}
-        </List>
-      </Card.Content>
-    </Card>
+            </List.Content>
+          </List.Item>
+        );
+      })}
+    </List>
   );
 };

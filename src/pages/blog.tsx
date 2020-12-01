@@ -58,19 +58,19 @@ const BlogPage = (props: BlogProps) => {
     <Container>
       {/* Title */}
       <BlogTitle />
-
+      <div>
+        <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
+      </div>
       {/* Content */}
       <Segment vertical>
         <Grid padded style={{ justifyContent: "space-around" }}>
-          <div style={{ maxWidth: 600 }}>
+          <div>
             {Posts}
             <Segment vertical textAlign="center">
               <BlogPagination Link={Link} pathname={pathname} pageCount={pageCount} />
             </Segment>
           </div>
-          <div>
-            <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
-          </div>
+
         </Grid>
       </Segment>
     </Container>
