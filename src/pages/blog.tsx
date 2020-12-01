@@ -1,12 +1,11 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import { StaticQuery, graphql } from "gatsby";
-import { Header, Grid, Card, List, Container, Feed, Segment, Comment, Label } from "semantic-ui-react";
+import { graphql } from "gatsby";
+import { Grid, Card, Container, Segment, Label } from "semantic-ui-react";
 import { MarkdownRemarkConnection, ImageSharp } from "../graphql-types";
 import BlogTitle from "../components/BlogTitle";
 import TagsCard from "../components/TagsCard/TagsCard";
 import BlogPagination from "../components/BlogPagination/BlogPagination";
-import { get } from "lodash";
 import { withLayout, LayoutProps } from "../components/Layout";
 import { MarkdownRemark } from "../graphql-types";
 import Utils from "../common/Utils"
@@ -31,9 +30,7 @@ const BlogPage = (props: BlogProps) => {
   const Posts = (
     <Container>
       {posts.map(({ node }: { node: MarkdownRemark }) => {
-        const { frontmatter, timeToRead, fields: { slug }, excerpt } = node;
-        const avatar = frontmatter.author.avatar.children[0] as ImageSharp;
-        const cover = get(frontmatter, "image.children.0.fixed", {});
+        const { frontmatter, fields: { slug } } = node;
         const updatedDate = Utils.formatDate(frontmatter.updatedDate);
         const tags = frontmatter.tags
           .map((tag) => <Label key={tag}><Link to={`/blog/tags/${tag}/`}>{tag}</Link></Label>);
@@ -42,14 +39,6 @@ const BlogPage = (props: BlogProps) => {
           <Card.Meta>
             <span style={{ fontSize: '8pt' }} className='date'> {updatedDate}</span>
           </Card.Meta>
-        );
-
-        const description = (
-          <Card.Description>
-            {excerpt}
-            <br />
-            <Link to={slug}>Read more…</Link>
-          </Card.Description>
         );
 
         return (
