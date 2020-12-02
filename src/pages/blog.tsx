@@ -42,13 +42,24 @@ const BlogPage = (props: BlogProps) => {
         );
 
         return (
-          <Card key={slug}
+          <Card
+            key={slug}
             fluid
-            header={frontmatter.title}
-            description={tags}
-            meta={extra}
-            href={slug}
-          />
+          // description={tags}
+          // meta={extra}
+          // link
+          ><Card.Content>
+              <Card.Header>
+                {frontmatter.title}
+              </Card.Header>
+              <Card.Meta>
+                {extra}
+              </Card.Meta>
+              <Card.Description>
+                {tags}
+              </Card.Description>
+            </Card.Content>
+          </Card>
         );
       })}
     </Container >
