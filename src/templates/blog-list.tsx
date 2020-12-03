@@ -23,8 +23,15 @@ interface BlogProps extends LayoutProps {
 const BlogPage = (props: BlogProps) => {
   const tags = props.data.tags.group;
   const posts = props.data.posts.edges;
-  const { pathname } = props.location;
+  const pathNames = props.location.pathname.split("/");
   const pageCount = Math.ceil(props.data.posts.totalCount / POSTS_PER_PAGE);
+  const currentPageNumber =
+    Number.isInteger(Number.parseInt(pathNames[pathNames.length - 1] || pathNames[pathNames.length - 2]))
+      ? Number.parseInt(pathNames.pop() || pathNames.pop())
+      : 1;
+  const pathname = pathNames.reduce((acc, cur, i) => {
+    return `${acc}${cur == "" ? "" : `${cur}/`}`;
+  }, "/");
 
   // TODO export posts in a proper component
   const Posts = (
@@ -85,6 +92,7 @@ const BlogPage = (props: BlogProps) => {
                 Link={Link}
                 pathname={pathname}
                 pageCount={pageCount}
+                pageNumber={currentPageNumber}
               />
             </Segment>
           </div>
