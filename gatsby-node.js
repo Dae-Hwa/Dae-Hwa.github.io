@@ -69,6 +69,7 @@ exports.createPages = ({ graphql, actions }) => {
       }
 
       const posts = result.data.posts.edges.map(p => p.node);
+      const pageCount = Math.ceil(posts.length / POSTS_PER_PAGE);
 
       // Create blog pages
       posts
@@ -95,7 +96,6 @@ exports.createPages = ({ graphql, actions }) => {
             // component: slash(templates.tagsPage),
             component: slash(path.resolve(`src/templates/blog-list.tsx`)),
             context: {
-              tag,
               dateFormat: DATE_FORMAT,
               postsPerPage: POSTS_PER_PAGE,
               filter: {
@@ -107,13 +107,31 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           });
+          times(pageCount, index => {
+            createPage({
+              path: `/blog/tags/${kebabCase(tag)}/${index + 1}/`,
+              // component: slash(templates.blogPage),
+              component: slash(path.resolve(`src/templates/blog-list.tsx`)),
+              context: {
+                skip: index * POSTS_PER_PAGE,
+                dateFormat: DATE_FORMAT,
+                postsPerPage: POSTS_PER_PAGE,
+                filter: {
+                  frontmatter: {
+                    draft: { ne: true },
+                    tags: { in: [tag] }
+                  },
+                  fileAbsolutePath: { regex: '/blog/' }
+                }
+              }
+            });
+          });
         });
 
       // Create blog pagination
-      const pageCount = Math.ceil(posts.length / POSTS_PER_PAGE);
       times(pageCount, index => {
         createPage({
-          path: `/blog/page/${index + 1}/`,
+          path: `/blog/${index + 1}/`,
           // component: slash(templates.blogPage),
           component: slash(path.resolve(`src/templates/blog-list.tsx`)),
           context: {
