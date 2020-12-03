@@ -65,7 +65,7 @@ const BlogPage = (props: BlogProps) => {
           // link
           >
             <Card.Content>
-              <Card.Header>{frontmatter.title}</Card.Header>
+              <Card.Header href={slug}>{frontmatter.title}</Card.Header>
               <Card.Meta>{extra}</Card.Meta>
               <Card.Description>{tags}</Card.Description>
             </Card.Content>

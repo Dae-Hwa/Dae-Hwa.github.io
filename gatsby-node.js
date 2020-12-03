@@ -79,7 +79,8 @@ exports.createPages = ({ graphql, actions }) => {
             path: post.fields.slug,
             component: slash(templates.blogPost),
             context: {
-              slug: post.fields.slug
+              slug: post.fields.slug,
+              dateFormat: DATE_FORMAT
             }
           });
         });
