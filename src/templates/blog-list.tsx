@@ -8,6 +8,7 @@ import TagsCard from '../components/TagsCard/TagsCard';
 import BlogPagination from '../components/BlogPagination/BlogPagination';
 import { withLayout, LayoutProps } from '../components/Layout';
 import { MarkdownRemark } from '../graphql-types';
+import { POSTS_PER_PAGE } from '../common/Consts'
 
 interface BlogProps extends LayoutProps {
   data: {
@@ -23,7 +24,7 @@ const BlogPage = (props: BlogProps) => {
   const tags = props.data.tags.group;
   const posts = props.data.posts.edges;
   const { pathname } = props.location;
-  const pageCount = Math.ceil(props.data.posts.totalCount / 10);
+  const pageCount = Math.ceil(props.data.posts.totalCount / POSTS_PER_PAGE);
 
   // TODO export posts in a proper component
   const Posts = (

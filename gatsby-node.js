@@ -96,6 +96,8 @@ exports.createPages = ({ graphql, actions }) => {
             component: slash(path.resolve(`src/templates/blog-list.tsx`)),
             context: {
               tag,
+              dateFormat: DATE_FORMAT,
+              postsPerPage: POSTS_PER_PAGE,
               filter: {
                 frontmatter: {
                   draft: { ne: true },
