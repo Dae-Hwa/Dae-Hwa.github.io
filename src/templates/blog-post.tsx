@@ -144,16 +144,16 @@ export const pageQuery = graphql`
       }
       title
       updatedDate(formatString: $dateFormat)
-      image {
-        children {
-          ... on ImageSharp {
-            fixed(width: 900, height: 300, quality: 100) {
-              src
-              srcSet
-            }
-          }
-        }
-      }
+      # image {
+      #   children {
+      #     ... on ImageSharp {
+      #       fixed(width: 900, height: 300, quality: 100) {
+      #         src
+      #         srcSet
+      #       }
+      #     }
+      #   }
+      # }
     }
   }
   recents: allMarkdownRemark(
@@ -174,16 +174,16 @@ export const pageQuery = graphql`
         frontmatter {
           tags
           title
-          image {
-            children {
-              ... on ImageSharp {
-                fixed(width: 300, height: 100) {
-                  src
-                  srcSet
-                }
-              }
-            }
-          }
+          # image {
+          #   children {
+          #     ... on ImageSharp {
+          #       fixed(width: 300, height: 100) {
+          #         src
+          #         srcSet
+          #       }
+          #     }
+          #   }
+          # }
           author {
             id
             # avatar {
