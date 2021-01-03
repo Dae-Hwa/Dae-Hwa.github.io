@@ -130,17 +130,17 @@ export const pageQuery = graphql`
       author {
         id
         bio
-        twitter
-        avatar {
-          children {
-            ... on ImageSharp {
-              fixed(width: 80, height: 80, quality: 100) {
-                src
-                srcSet
-              }
-            }
-          }
-        }
+        # twitter
+        # avatar {
+        #   children {
+        #     ... on ImageSharp {
+        #       fixed(width: 80, height: 80, quality: 100) {
+        #         src
+        #         srcSet
+        #       }
+        #     }
+        #   }
+        # }
       }
       title
       updatedDate(formatString: $dateFormat)
@@ -186,16 +186,16 @@ export const pageQuery = graphql`
           }
           author {
             id
-            avatar {
-              children {
-                ... on ImageSharp {
-                  fixed(width: 36, height: 36) {
-                    src
-                    srcSet
-                  }
-                }
-              }
-            }
+            # avatar {
+            #   children {
+            #     ... on ImageSharp {
+            #       fixed(width: 36, height: 36) {
+            #         src
+            #         srcSet
+            #       }
+            #     }
+            #   }
+            # }
           }
         }
       }
