@@ -7,12 +7,12 @@ export default () => {
    */
   return (
     <Segment vertical>
-      <Header as="h2">
+      <Header as="h3">
         <Icon name="newspaper" />
         <Header.Content>
-          정대화 블로그
+          blog
             <Header.Subheader>
-            {/* All about this starter kit */}
+            This will be updated
           </Header.Subheader>
         </Header.Content>
       </Header>
