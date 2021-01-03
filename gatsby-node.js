@@ -32,7 +32,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 // so you have access to any information necessary to
 // programmatically create pages.
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
 
   return new Promise((resolve, reject) => {
     const templates = ['blogPost', 'tagsPage', 'blogPage'].reduce(
@@ -151,7 +151,7 @@ exports.createPages = ({ graphql, actions }) => {
 
       // Create default blog pages
       createPage({
-        path: `/blog`,
+        path: `/blog/`,
         component: slash(path.resolve(`src/templates/blog-list.tsx`)),
         context: {
           dateFormat: DATE_FORMAT,
@@ -162,6 +162,20 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
+      });
+
+      // Redirect temporary
+      createRedirect({
+        fromPath: `/`,
+        toPath: `/blog/`,
+        redirectInBrowser: true,
+        isPermanent: true
+      });
+      createRedirect({
+        fromPath: `/about/`,
+        toPath: `/blog/`,
+        redirectInBrowser: true,
+        isPermanent: true
       });
 
       resolve();
