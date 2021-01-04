@@ -15,7 +15,7 @@ export const HeaderMenu = ({ items, pathname, Link, inverted, dispatch }: Header
     <Menu size="large" pointing secondary inverted={inverted}>
       <Menu.Item as="a" className="mobile only" icon="sidebar" onClick={() => dispatch && dispatch(toggleSidebar())} />
       <Header as={"h1"} style={{ "margin-bottom": "6px" }}>
-        <Header.Content>정대화 블로그</Header.Content>
+        <Header.Content>Dae'Log</Header.Content>
       </Header>
       {items.map((item) => {
         const active = (item.exact) ? pathname === item.path : pathname.startsWith(item.path);
