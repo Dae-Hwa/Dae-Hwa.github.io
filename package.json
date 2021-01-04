@@ -156,7 +156,7 @@
     ],
     "*.md": [
       "node tools/update-post-date.js",
-      "remark -o",
+      "remark",
       "git add"
     ],
     "*.css": [
