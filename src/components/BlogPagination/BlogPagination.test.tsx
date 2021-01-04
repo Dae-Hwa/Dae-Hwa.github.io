@@ -12,7 +12,7 @@ const LinkStub = ((props: any) => <div {...props} />) as any;
 describe("BlogPagination component", () => {
   it("should render nothing if only 1 page", () => {
     const pageNumber: number = 1;
-    const pathname: string = `/blog/page/${pageNumber}/`;
+    const pathname: string = "/blog/page/";
     const pageCount: number = 1;
 
     const wrapper = render(<BlogPagination
@@ -25,7 +25,7 @@ describe("BlogPagination component", () => {
 
   it("should render correctly 5 pages", () => {
     const pageNumber: number = 2;
-    const pathname: string = `/blog/page/${pageNumber}/`;
+    const pathname: string = "/blog/page/";
     const pageCount: number = 5;
 
     const wrapper = render(<BlogPagination
@@ -38,7 +38,7 @@ describe("BlogPagination component", () => {
 
   it("should render correctly 10 pages", () => {
     const pageNumber: number = 5;
-    const pathname: string = `/blog/page/${pageNumber}/`;
+    const pathname: string = "/blog/page/";
     const pageCount: number = 10;
 
     const wrapper = render(<BlogPagination
@@ -51,7 +51,7 @@ describe("BlogPagination component", () => {
 
   it("should render correctly 20 pages", () => {
     const pageNumber: number = 5;
-    const pathname: string = `/blog/page/${pageNumber}/`;
+    const pathname: string = "/blog/page/";
     const pageCount: number = 20;
 
     const wrapper = render(<BlogPagination
