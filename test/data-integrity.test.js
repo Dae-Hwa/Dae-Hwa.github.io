@@ -1,13 +1,16 @@
 /* eslint-disable no-undef, max-nested-callbacks */
 const fs = require('fs');
-const path = require('path');
+// 아바타에 사용되던거
+// const path = require('path');
 const matter = require('gray-matter');
 const _ = require('lodash');
 const authors = require('../data/author.json');
 
 describe('data integrity', () => {
   describe('authors', () => {
-    const requiredFields = ['id', 'bio', 'avatar', 'twitter', 'github'];
+    // 아바타, 트위터 사용하지 않음
+    // const requiredFields = ['id', 'bio', 'avatar', 'twitter', 'github'];
+    const requiredFields = ['id', 'bio', 'github'];
 
     authors.forEach(author => {
       describe(`${author.id}`, () => {
@@ -19,10 +22,10 @@ describe('data integrity', () => {
         });
 
         // Check if avatar image is in the repo
-        it('should have avatar image in the repo', () => {
-          const avatarPath = path.join('data/', author.avatar);
-          expect(fs.existsSync(avatarPath)).toBeTruthy();
-        });
+        // it('should have avatar image in the repo', () => {
+        //   const avatarPath = path.join('data/', author.avatar);
+        //   expect(fs.existsSync(avatarPath)).toBeTruthy();
+        // });
       });
     });
   });
@@ -35,7 +38,6 @@ describe('data integrity', () => {
       {key: 'updatedDate', validator: val => _.isDate(new Date(val))},
       {key: 'author', validator: val => _.map(authors, 'id').includes(val)},
       {key: 'tags', validator: _.isArray},
-      {key: 'image', validator: (val, post) => fs.existsSync(`data/blog/${post}/${val}`)},
       {key: 'draft', validator: _.isBoolean}
     ];
 

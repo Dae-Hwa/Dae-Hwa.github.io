@@ -19,6 +19,6 @@ storiesOf("BlogPagination", module)
     const pageCount = number("pageCount", 10);
 
     return (
-      <BlogPagination pathname={pathname} Link={LinkStub} pageCount={pageCount} />
+      <BlogPagination pathname={pathname} Link={LinkStub} pageCount={pageCount} pageNumber={activePage} />
     );
   });

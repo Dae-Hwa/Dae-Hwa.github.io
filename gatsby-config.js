@@ -1,12 +1,12 @@
 /* eslint-disable quotes */
 module.exports = {
   siteMetadata: {
-    title: `My website`,
+    title: `정대화 블로그`,
     googleVerification: `KcBkKb98B6KkvhBZep62SKTUISv0CSGhpMa2f6viIck`,
     disqus: `gatsby-typescript`
   },
   mapping: {
-    "MarkdownRemark.frontmatter.author": `AuthorJson`
+    'MarkdownRemark.frontmatter.author': `AuthorJson`
   },
   plugins: [
     // Expose `/data` to graphQL layer
@@ -21,7 +21,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "YOUR_GOOGLE_ANALYTICS_TRACKING_ID",
+        trackingId: 'YOUR_GOOGLE_ANALYTICS_TRACKING_ID',
         // Puts tracking script in the head instead of the body
         head: false,
         // Setting this parameter is optional

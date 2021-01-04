@@ -1,8 +1,9 @@
 const path = require('path');
 const slash = require('slash');
-const { kebabCase, uniq, get, compact, times } = require('lodash');
-const { DATE_FORMAT, POSTS_PER_PAGE } = require('./src/common/Consts');
-const { Interface } = require('readline');
+const {kebabCase, uniq, get, compact, times} = require('lodash');
+const {DATE_FORMAT, POSTS_PER_PAGE} = require('./src/common/consts');
+// 어디에 쓰이던건지 확인 필요
+// const {Interface} = require('readline');
 
 // Don't forget to update hard code values into:
 // - `templates/blog-page.tsx:23`
@@ -12,8 +13,8 @@ const cleanArray = arr => compact(uniq(arr));
 
 // Create slugs for files.
 // Slug will used for blog page path.
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
+exports.onCreateNode = ({node, actions, getNode}) => {
+  const {createNodeField} = actions;
   let slug;
   if (node.internal.type === 'MarkdownRemark') {
     const fileNode = getNode(node.parent);
@@ -23,7 +24,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (slug) {
     // eslint-disable-next-line quotes
-    createNodeField({ node, name: `slug`, value: slug });
+    createNodeField({node, name: `slug`, value: slug});
   }
 };
 
@@ -31,8 +32,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 // This is called after the Gatsby bootstrap is finished
 // so you have access to any information necessary to
 // programmatically create pages.
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
+exports.createPages = ({graphql, actions}) => {
+  const {createPage, createRedirect} = actions;
 
   return new Promise((resolve, reject) => {
     const templates = ['blogPost', 'tagsPage', 'blogPage'].reduce(
@@ -94,35 +95,37 @@ exports.createPages = ({ graphql, actions }) => {
         .forEach(tag => {
           createPage({
             path: `/blog/tags/${kebabCase(tag)}/`,
+            // 주소 정리 필요
             // component: slash(templates.tagsPage),
-            component: slash(path.resolve(`src/templates/blog-list.tsx`)),
+            component: slash(path.resolve('src/templates/blog-list.tsx')),
             context: {
               dateFormat: DATE_FORMAT,
               postsPerPage: POSTS_PER_PAGE,
               filter: {
                 frontmatter: {
-                  draft: { ne: true },
-                  tags: { in: [tag] }
+                  draft: {ne: true},
+                  tags: {in: [tag]}
                 },
-                fileAbsolutePath: { regex: '/blog/' }
+                fileAbsolutePath: {regex: '/blog/'}
               }
             }
           });
           times(pageCount, index => {
             createPage({
               path: `/blog/tags/${kebabCase(tag)}/${index + 1}/`,
+              // 주소 정리 필요
               // component: slash(templates.blogPage),
-              component: slash(path.resolve(`src/templates/blog-list.tsx`)),
+              component: slash(path.resolve('src/templates/blog-list.tsx')),
               context: {
                 skip: index * POSTS_PER_PAGE,
                 dateFormat: DATE_FORMAT,
                 postsPerPage: POSTS_PER_PAGE,
                 filter: {
                   frontmatter: {
-                    draft: { ne: true },
-                    tags: { in: [tag] }
+                    draft: {ne: true},
+                    tags: {in: [tag]}
                   },
-                  fileAbsolutePath: { regex: '/blog/' }
+                  fileAbsolutePath: {regex: '/blog/'}
                 }
               }
             });
@@ -133,17 +136,18 @@ exports.createPages = ({ graphql, actions }) => {
       times(pageCount, index => {
         createPage({
           path: `/blog/${index + 1}/`,
+          // 주소 정리 필요
           // component: slash(templates.blogPage),
-          component: slash(path.resolve(`src/templates/blog-list.tsx`)),
+          component: slash(path.resolve('src/templates/blog-list.tsx')),
           context: {
             skip: index * POSTS_PER_PAGE,
             dateFormat: DATE_FORMAT,
             postsPerPage: POSTS_PER_PAGE,
             filter: {
               frontmatter: {
-                draft: { ne: true }
+                draft: {ne: true}
               },
-              fileAbsolutePath: { regex: '/blog/' }
+              fileAbsolutePath: {regex: '/blog/'}
             }
           }
         });
@@ -151,17 +155,31 @@ exports.createPages = ({ graphql, actions }) => {
 
       // Create default blog pages
       createPage({
-        path: `/blog`,
-        component: slash(path.resolve(`src/templates/blog-list.tsx`)),
+        path: '/blog/',
+        component: slash(path.resolve('src/templates/blog-list.tsx')),
         context: {
           dateFormat: DATE_FORMAT,
           postsPerPage: POSTS_PER_PAGE,
           filter: {
             frontmatter: {
-              draft: { ne: true }
+              draft: {ne: true}
             }
           }
         }
+      });
+
+      // Redirect temporary
+      createRedirect({
+        fromPath: '/',
+        toPath: '/blog/',
+        redirectInBrowser: true,
+        isPermanent: true
+      });
+      createRedirect({
+        fromPath: '/about/',
+        toPath: '/blog/',
+        redirectInBrowser: true,
+        isPermanent: true
       });
 
       resolve();

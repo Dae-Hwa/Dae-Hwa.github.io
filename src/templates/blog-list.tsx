@@ -1,14 +1,14 @@
-import * as React from 'react';
-import { Link } from 'gatsby';
-import { graphql } from 'gatsby';
-import { Grid, Card, Container, Segment, Label } from 'semantic-ui-react';
-import { MarkdownRemarkConnection, ImageSharp } from '../graphql-types';
-import BlogTitle from '../components/BlogTitle';
-import TagsCard from '../components/TagsCard/TagsCard';
-import BlogPagination from '../components/BlogPagination/BlogPagination';
-import { withLayout, LayoutProps } from '../components/Layout';
-import { MarkdownRemark } from '../graphql-types';
-import { POSTS_PER_PAGE } from '../common/Consts'
+import * as React from "react";
+import { Link } from "gatsby";
+import { graphql } from "gatsby";
+import { Grid, Card, Container, Segment, Label } from "semantic-ui-react";
+import { MarkdownRemarkConnection, ImageSharp } from "../graphql-types";
+import BlogTitle from "../components/BlogTitle";
+import TagsCard from "../components/TagsCard/TagsCard";
+import BlogPagination from "../components/BlogPagination/BlogPagination";
+import { withLayout, LayoutProps } from "../components/Layout";
+import { MarkdownRemark } from "../graphql-types";
+import { POSTS_PER_PAGE } from "../common/consts";
 
 interface BlogProps extends LayoutProps {
   data: {
@@ -30,7 +30,7 @@ const BlogPage = (props: BlogProps) => {
       ? Number.parseInt(pathNames.pop() || pathNames.pop())
       : 1;
   const pathname = pathNames.reduce((acc, cur, i) => {
-    return `${acc}${cur == "" ? "" : `${cur}/`}`;
+    return `${acc}${cur === "" ? "" : `${cur}/`}`;
   }, "/");
 
   // TODO export posts in a proper component
@@ -39,9 +39,9 @@ const BlogPage = (props: BlogProps) => {
       {posts.map(({ node }: { node: MarkdownRemark }) => {
         const {
           frontmatter,
-          fields: { slug }
+          fields: { slug },
         } = node;
-        const tags = frontmatter.tags.map(tag => (
+        const labeldTags = frontmatter.tags.map((tag) => (
           <Label key={tag}>
             <Link to={`/blog/tags/${tag}/`}>{tag}</Link>
           </Label>
@@ -49,8 +49,8 @@ const BlogPage = (props: BlogProps) => {
 
         const extra = (
           <Card.Meta>
-            <span style={{ fontSize: '8pt' }} className="date">
-              {' '}
+            <span style={{ fontSize: "8pt" }} className="date">
+              {" "}
               {frontmatter.updatedDate}
             </span>
           </Card.Meta>
@@ -67,7 +67,7 @@ const BlogPage = (props: BlogProps) => {
             <Card.Content>
               <Card.Header href={slug}>{frontmatter.title}</Card.Header>
               <Card.Meta>{extra}</Card.Meta>
-              <Card.Description>{tags}</Card.Description>
+              <Card.Description>{labeldTags}</Card.Description>
             </Card.Content>
           </Card>
         );
@@ -84,7 +84,7 @@ const BlogPage = (props: BlogProps) => {
       </div>
       {/* Content */}
       <Segment vertical>
-        <Grid padded style={{ justifyContent: 'space-around' }}>
+        <Grid padded style={{ justifyContent: "space-around" }}>
           <div>
             {Posts}
             <Segment vertical textAlign="center">
