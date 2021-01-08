@@ -111,7 +111,10 @@
     "xo": "^0.37.1"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "unicorn/no-array-reduce": "off"
+    }
   },
   "keywords": [
     "gatsby",
@@ -168,7 +171,8 @@
     "space": true,
     "rules": {
       "no-case-declarations": 0,
-      "default-case": 0
+      "default-case": 0,
+      "unicorn/no-array-reduce": "off"
     },
     "ignores": [
       "**/*.tsx",

@@ -5741,14 +5741,3 @@ initialize {
   },
 }
 `;
-
-exports[`BlogPagination component should render nothing if only 1 page 1`] = `
-initialize {
-  "options": Object {
-    "decodeEntities": true,
-    "normalizeWhitespace": false,
-    "withDomLvl1": true,
-    "xml": false,
-  },
-}
-`;

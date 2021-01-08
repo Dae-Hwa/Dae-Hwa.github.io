@@ -1,4 +1,7 @@
 /* eslint-disable quotes */
+
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     title: `정대화 블로그`,
@@ -14,7 +17,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `data`,
-        path: `${__dirname}/data`
+        path: path.join(__dirname, "data")
       }
     },
 
@@ -72,7 +75,8 @@ module.exports = {
         start_url: `/`,
         background_color: `#f7f7f7`,
         theme_color: `#191919`,
-        display: `minimal-ui`
+        display: `minimal-ui`,
+        icon: `src/images/favicon.png`
       }
     },
     /* eslint-enable camelcase */

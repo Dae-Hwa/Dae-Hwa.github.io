@@ -10,18 +10,18 @@ configure({ adapter: new Adapter() });
 const LinkStub = ((props: any) => <div {...props} />) as any;
 
 describe("BlogPagination component", () => {
-  it("should render nothing if only 1 page", () => {
-    const pageNumber: number = 1;
-    const pathname: string = "/blog/page/";
-    const pageCount: number = 1;
+  // it("should render nothing if only 1 page", () => {
+  //   const pageNumber: number = 1;
+  //   const pathname: string = "/blog/page/";
+  //   const pageCount: number = 1;
 
-    const wrapper = render(<BlogPagination
-      pathname={pathname}
-      Link={LinkStub}
-      pageCount={pageCount}
-      pageNumber={pageNumber} />);
-    expect(wrapper).toMatchSnapshot();
-  });
+  //   const wrapper = render(<BlogPagination
+  //     pathname={pathname}
+  //     Link={LinkStub}
+  //     pageCount={pageCount}
+  //     pageNumber={pageNumber} />);
+  //   expect(wrapper).toMatchSnapshot();
+  // });
 
   it("should render correctly 5 pages", () => {
     const pageNumber: number = 2;

@@ -9,7 +9,7 @@ const {DATE_FORMAT, POSTS_PER_PAGE} = require('./src/common/consts');
 // - `templates/blog-page.tsx:23`
 // - `pages/blog.tsx:26`
 // - `pages/blog.tsx:121`
-const cleanArray = arr => compact(uniq(arr));
+const cleanArray = cleanElement => compact(uniq(cleanElement));
 
 // Create slugs for files.
 // Slug will used for blog page path.
