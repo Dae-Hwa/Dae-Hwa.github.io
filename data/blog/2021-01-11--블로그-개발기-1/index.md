@@ -54,8 +54,6 @@ https://www.gatsbyjs.com/docs/programmatically-create-pages-from-data/
 
 타입스크립트가 들어있어 처음에 당황하긴 했지만 좀 익숙해지니 기존의 js 보다는 훨씬 좋은 것 같다. 아만보인지는 모르겠지만, 함수형으로 작성된 리엑트 + 타입스크립트는 C와 많이 닮아있는 듯 하다.
 
->   사진 찍어올리기
-
 ### React Semantic UI
 
  https://react.semantic-ui.com/
