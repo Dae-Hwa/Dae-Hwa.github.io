@@ -97,3 +97,14 @@ pre {
   border-radius: 0.3em;
   background: #272822;
 }
+
+li {
+  margin-bottom: 0.5em;
+}
+
+blockquote {
+  color: #3a3a3a;
+  font-style: italic;
+  font-size: small;
+  margin: -0.5em 0 0.5em 1em;
+}

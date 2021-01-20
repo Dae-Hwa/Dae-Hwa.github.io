@@ -80,51 +80,53 @@ const BlogPostPage = (props: BlogPostProps) => {
 
   const cover = get(frontmatter, "image.children.0.fixed", {});
   return (
-    <Container>
-      {/* <BlogTitle /> */}
-      <Segment vertical style={{ border: "none" }}>
+    <div style={{ maxWidth: "750px", margin: "auto" }}>
+      <Container>
+        {/* <BlogTitle /> */}
+        <Segment vertical style={{ border: "none" }}>
+          <Item.Group>
+            <Item>
+              <Item.Content>
+                <Item.Header>
+                  <Header as="h1">{frontmatter.title}</Header>
+                </Item.Header>
+                {/* <Item.Description>{frontmatter.author.id}</Item.Description> */}
+                <Item.Meta>{frontmatter.updatedDate}</Item.Meta>
+              </Item.Content>
+            </Item>
+          </Item.Group>
+        </Segment>
+
+        <Segment
+          vertical
+          style={{ border: "none" }}
+          dangerouslySetInnerHTML={{
+            __html: html,
+          }}
+        />
+        <Segment vertical>{tags}</Segment>
         <Item.Group>
           <Item>
             <Item.Content>
-              <Item.Header>
-                <Header as="h1">{frontmatter.title}</Header>
-              </Item.Header>
-              {/* <Item.Description>{frontmatter.author.id}</Item.Description> */}
-              <Item.Meta>{frontmatter.updatedDate}</Item.Meta>
+              <Item.Description>{frontmatter.author.id}</Item.Description>
+              <Item.Meta>{frontmatter.author.bio}</Item.Meta>
             </Item.Content>
           </Item>
         </Item.Group>
-      </Segment>
-
-      <Segment
-        vertical
-        style={{ border: "none" }}
-        dangerouslySetInnerHTML={{
-          __html: html,
-        }}
-      />
-      <Segment vertical>{tags}</Segment>
-      <Item.Group>
-        <Item>
-          <Item.Content>
-            <Item.Description>{frontmatter.author.id}</Item.Description>
-            <Item.Meta>{frontmatter.author.bio}</Item.Meta>
-          </Item.Content>
-        </Item>
-      </Item.Group>
-      {props.data.site &&
-        props.data.site.siteMetadata &&
-        props.data.site.siteMetadata.disqus && (
-          <Segment vertical>
-            {/* <DiscussionEmbed shortname={props.data.site.siteMetadata.disqus} config={{}} /> */}
-          </Segment>
-        )}
-      <Segment vertical>
-        <Grid padded centered>
-          {/* {recents} */}
-        </Grid>
-      </Segment>
-    </Container>
+        {props.data.site &&
+          props.data.site.siteMetadata &&
+          props.data.site.siteMetadata.disqus && (
+            <Segment vertical>
+              {/* <DiscussionEmbed shortname={props.data.site.siteMetadata.disqus} config={{}} /> */}
+            </Segment>
+          )}
+        <Segment vertical>
+          <Grid padded centered>
+            {/* {recents} */}
+          </Grid>
+        </Segment>
+      </Container>
+    </div>
   );
 };
 
