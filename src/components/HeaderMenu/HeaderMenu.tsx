@@ -14,7 +14,7 @@ export const HeaderMenu = ({ items, pathname, Link, inverted, dispatch }: Header
   <Container>
     <Menu size="large" pointing secondary inverted={inverted}>
       <Menu.Item as="a" className="mobile only" icon="sidebar" onClick={() => dispatch && dispatch(toggleSidebar())} />
-      <Header as={"h1"} style={{ "margin-bottom": "6px" }}>
+      <Header as={"h1"} style={{ "marginBottom": "6px" }}>
         <Header.Content>Dae'Log</Header.Content>
       </Header>
       {items.map((item) => {
