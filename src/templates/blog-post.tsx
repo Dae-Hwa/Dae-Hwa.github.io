@@ -99,7 +99,7 @@ const BlogPostPage = (props: BlogPostProps) => {
 
         <Segment
           vertical
-          style={{ border: "none" }}
+          style={{ border: "none", fontSize: "1.1em" }}
           dangerouslySetInnerHTML={{
             __html: html,
           }}
