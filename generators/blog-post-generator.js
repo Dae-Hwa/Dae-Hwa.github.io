@@ -30,10 +30,19 @@ module.exports = plop => {
       }
     ],
     actions: data => {
+      const curDate = new Date();
+      const year = curDate.getFullYear();
+      const month = curDate.getMonth() < 10 ? `0${curDate.getMonth() + 1}` : curDate.getMonth();
+      const date = curDate.getDate();
+      const time = curDate.toLocaleTimeString().split(" ")[1]
+
       // Get current date
-      data.createdDate = new Date().toISOString().split('T')[0];
+      data.createdDate = `${year}-${month}-${date} ${time}`
 
       // Parse tags as yaml array
+
+      data.tags = data.tags || "etc";
+
       if (data.tags) {
         data.tags = `\ntags:\n  - ${data.tags.split(',').join('\n  - ')}`;
       }
@@ -41,7 +50,7 @@ module.exports = plop => {
       return [
         {
           type: 'add',
-          path: '../data/blog/{{createdDate}}--{{dashCase title}}/index.md',
+          path: `../data/blog/${year}-${month}-${date}--{{dashCase title}}/index.md`,
           templateFile: 'templates/blog-post-md.template'
         }
       ];
