@@ -7,7 +7,6 @@ tags:
   - java
   - junit
   - assertj
-  - gradle
   - tdd
 draft: false
 ---
