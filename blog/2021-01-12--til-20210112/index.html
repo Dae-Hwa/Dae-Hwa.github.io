@@ -52,12 +52,12 @@
 <li>오전에 cs강의를 들었다. 파이프 라인에 대한 강의였는데 파이프 라인의 장점에 대해 들었다. 연산 별로 파이프를 만들어 통과하게 하면 보다 효율적이게 CPU를 사용할 수 있다. 이런식으로 조금씩이라도 매일 듣는게 더 좋을 것 같다. 내일도 해보자.</li>
 <li>호눅스의 강의에서 pass by value의 존재에 대해 듣게됐다. 시간이 나면 한 번 찾아봐야겠다. 아무래도 레퍼런스를 찾아봐야하니 한 번에 검색하기가 쉽지 않은 것 같다. 사실은 검색 능력이 좋지 않은 탓이다 😓</li>
 <li>인터페이스로 명령에 대한 구현을 나누는 것이 여러개로 나뉜다는걸 어렴풋이 알게 되었다. 스테이트, 스트레이트, 컴포지트, 커맨드 패턴이 그것들인데 어느정도 의문을 풀 수 있을 것 같다.</li>
-<li>
-<p>발단은 역시 swtich-case를 없애기 위함이었는데, 이번에는 메소드의 인자 개수가 달라져야 하기 때문에 인터페이스를 설계하기 까다로웠다.</p>
+<li>발단은 역시 swtich-case를 없애기 위함이었는데, 이번에는 메소드의 인자 개수가 달라져야 하기 때문에 인터페이스를 설계하기 까다로웠다.</li>
+</ul>
 <div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">void</span> <span class="token function">execute</span><span class="token punctuation">(</span><span class="token class-name">TypeA</span> arg1<span class="token punctuation">,</span> <span class="token class-name">TypeB</span> arg2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">void</span> <span class="token function">execute</span><span class="token punctuation">(</span><span class="token class-name">TypeA</span> arg1<span class="token punctuation">,</span> <span class="token class-name">TypeB</span> arg2<span class="token punctuation">,</span> <span class="token keyword">int</span> arg3<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
 <p>위와 같이 정의되어야 하는데 상태로 보관하더라도 어찌됐건 불필요한 인자가 들어가는 경우가 생기기 때문이다. 좀 더 고민해보고 질문을 해봐야겠다. 다른 사람의 소스를 보니 빌더를 만들어 인스턴스를 매핑 해놓고 명령을 호출할때마다 빌드하는 식으로 짠 사람도 있었는데, 결국 스트링을 넣어야하기때문에 궁극적으로 원하는 바는 아닌 것 같다. 하지만 저 아이디어 자체는 놀랍다. 감탄했다.</p>
-</li>
+<ul>
 <li>빅오가 점근적 상한을 표현하는 것이라는 것을 알게 되었다. 용어로 표현하니 헷갈렸는데, 상한이 성능의 상한이 아닌 복잡도의 상한이라고 생각해야 하는데 한 번에 바뀌지가 않는다. 가끔 들여다보자.</li>
 <li>이번에 구현한 링크드 리스트는 리스트의 쓰임새에 대해 한 번 생각해보는 계기가 되었다. 리스트는 정적자료, 싱글 링크드는 스택과 큐, 더블 링크드는 좌우로 넘나드는 개발, 서큘러는 스케줄러. 중요한 부분이 무엇일까 다시 한 번 생각해보게 됐다.</li>
 </ul>
@@ -69,7 +69,7 @@
 <ul>
 <li>오전에 cs 듣기</li>
 <li>내일 읽어보기 <a href="https://snowdeer.github.io/designpattern/2016/05/06/design-pattern-command/">https://snowdeer.github.io/designpattern/2016/05/06/design-pattern-command/</a></li>
-</ul></div><div class="ui vertical segment"><div class="ui label"><a href="/blog/tags/TIL/">TIL</a></div></div><div class="ui items"><div class="item"><div class="content"><div class="description">정대화</div><div class="meta">DaeHwa_Jeong@outlook.com</div></div></div></div><div class="ui vertical segment"></div><div class="ui vertical segment"><div class="ui centered padded grid"></div></div></div></div></div><div style="position:absolute;bottom:0;width:100%" class="ui inverted vertical segment"><div class="ui center aligned container"><p>Powered with <i aria-hidden="true" class="heart icon"></i> by Gatsby 2.0</p></div></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+</ul></div><div class="ui vertical segment"><div class="ui label"><a href="/blog/tags/til/">til</a></div></div><div class="ui items"><div class="item"><div class="content"><div class="description">정대화</div><div class="meta">DaeHwa_Jeong@outlook.com</div></div></div></div><div class="ui vertical segment"></div><div class="ui vertical segment"><div class="ui centered padded grid"></div></div></div></div></div><div style="position:absolute;bottom:0;width:100%" class="ui inverted vertical segment"><div class="ui center aligned container"><p>Powered with <i aria-hidden="true" class="heart icon"></i> by Gatsby 2.0</p></div></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
   
   function gaOptout(){document.cookie=disableStr+'=true; expires=Thu, 31 Dec 2099 23:59:59 UTC;path=/',window[disableStr]=!0}var gaProperty='YOUR_GOOGLE_ANALYTICS_TRACKING_ID',disableStr='ga-disable-'+gaProperty;document.cookie.indexOf(disableStr+'=true')>-1&&(window[disableStr]=!0);
   if(!(parseInt(navigator.doNotTrack) === 1 || parseInt(window.doNotTrack) === 1 || parseInt(navigator.msDoNotTrack) === 1 || navigator.doNotTrack === "yes")) {
