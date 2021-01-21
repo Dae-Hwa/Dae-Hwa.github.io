@@ -1,7 +1,7 @@
 ---
 title: TIL-20210121
-createdDate: "2021-01-22 3:25:52"
-updatedDate: "2021-01-22 3:25:52"
+createdDate: "2021-01-22 03:25:52"
+updatedDate: "2021-01-22 03:25:52"
 author: 정대화
 tags:
   - til
