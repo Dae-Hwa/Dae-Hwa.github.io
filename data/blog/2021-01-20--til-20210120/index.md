@@ -18,17 +18,17 @@ draft: false
 
   ```java
   class A {
-    public static void main(String[] args) {
-      // #1
-      A a = new A();
-      // #2
-      call(a);
-    }
+      public static void main(String[] args) {
+          // #1
+          A a = new A();
+          // #2
+          call(a);
+      }
 
-    public void call(A parameter) {
-      // #3
-      parameter = new A();
-    }
+      public void call(A parameter) {
+        // #3
+        parameter = new A();
+      }
   }
   ```
 
