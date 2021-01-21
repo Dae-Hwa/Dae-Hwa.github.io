@@ -3,6 +3,7 @@
 const fs = require('fs');
 const slash = require('slash');
 const matter = require('gray-matter');
+const {getCurrentDateTime} = require('../generators/utils');
 
 // Get files given by lint-staged (*.md files into staged)
 process.argv.slice(3).forEach(dirtyPath => {
@@ -18,14 +19,8 @@ process.argv.slice(3).forEach(dirtyPath => {
   const orig = fs.readFileSync(path, 'utf-8');
   const parsedFile = matter(orig);
 
-  // Get current date and update `updatedDate` data
-  const curDate = new Date();
-  const year = curDate.getFullYear();
-  const month = curDate.getMonth() < 10 ? `0${curDate.getMonth() + 1}` : curDate.getMonth();
-  const date = curDate.getDate();
-  const time = curDate.toLocaleTimeString().split(" ")[1]
-
-  const updatedDate = `${year}-${month}-${date} ${time}`
+  // Set current date and update `updatedDate` data
+  const updatedDate = getCurrentDateTime();
   const updatedData = Object.assign({}, parsedFile.data, {updatedDate});
 
   // Recompose content and updated data

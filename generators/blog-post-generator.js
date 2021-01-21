@@ -1,5 +1,5 @@
 const fs = require('fs');
-const {inputRequired} = require('./utils');
+const {inputRequired, getCurrentDate, getCurrentDateTime} = require('./utils');
 
 const authors = JSON.parse(fs.readFileSync('./data/author.json'));
 
@@ -30,14 +30,8 @@ module.exports = plop => {
       }
     ],
     actions: data => {
-      const curDate = new Date();
-      const year = curDate.getFullYear();
-      const month = curDate.getMonth() < 10 ? `0${curDate.getMonth() + 1}` : curDate.getMonth();
-      const date = curDate.getDate();
-      const time = curDate.toLocaleTimeString().split(" ")[1]
-
-      // Get current date
-      data.createdDate = `${year}-${month}-${date} ${time}`
+      // Set current date
+      data.createdDate = `${getCurrentDateTime()}`
 
       // Parse tags as yaml array
 
@@ -50,7 +44,7 @@ module.exports = plop => {
       return [
         {
           type: 'add',
-          path: `../data/blog/${year}-${month}-${date}--{{dashCase title}}/index.md`,
+          path: `../data/blog/${getCurrentDate()}--{{dashCase title}}/index.md`,
           templateFile: 'templates/blog-post-md.template'
         }
       ];
