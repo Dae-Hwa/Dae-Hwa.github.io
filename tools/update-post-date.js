@@ -19,7 +19,13 @@ process.argv.slice(3).forEach(dirtyPath => {
   const parsedFile = matter(orig);
 
   // Get current date and update `updatedDate` data
-  const updatedDate = new Date().toISOString().split('T')[0];
+  const curDate = new Date();
+  const year = curDate.getFullYear();
+  const month = curDate.getMonth() < 10 ? `0${curDate.getMonth() + 1}` : curDate.getMonth();
+  const date = curDate.getDate();
+  const time = curDate.toLocaleTimeString().split(" ")[1]
+
+  const updatedDate = `${year}-${month}-${date} ${time}`
   const updatedData = Object.assign({}, parsedFile.data, {updatedDate});
 
   // Recompose content and updated data
