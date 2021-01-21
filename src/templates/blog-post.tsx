@@ -91,7 +91,10 @@ const BlogPostPage = (props: BlogPostProps) => {
                   <Header as="h1">{frontmatter.title}</Header>
                 </Item.Header>
                 {/* <Item.Description>{frontmatter.author.id}</Item.Description> */}
-                <Item.Meta>{frontmatter.updatedDate}</Item.Meta>
+                <Item.Meta>
+                  <Icon name="clock"></Icon>
+                  {frontmatter.createdDate != frontmatter.updatedDate ? `${frontmatter.createdDate} (updated: ${frontmatter.updatedDate})` : frontmatter.createdDate}
+                </Item.Meta>
               </Item.Content>
             </Item>
           </Item.Group>
@@ -165,6 +168,7 @@ export const pageQuery = graphql`
         }
         title
         updatedDate(formatString: $dateFormat)
+        createdDate(formatString: $dateFormat)
         # image {
         #   children {
         #     ... on ImageSharp {
