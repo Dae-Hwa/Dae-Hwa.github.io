@@ -1,10 +1,10 @@
 ---
 title: TIL-20210104
-createdDate: '2021-01-04'
-updatedDate: '2021-01-05'
+createdDate: "2021-01-04"
+updatedDate: "2021-01-05"
 author: 정대화
 tags:
-  - TIL
+  - til
 draft: false
 ---
 

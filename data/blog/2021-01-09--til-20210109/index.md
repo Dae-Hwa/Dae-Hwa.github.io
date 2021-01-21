@@ -4,7 +4,7 @@ createdDate: "2021-01-09"
 updatedDate: "2021-01-09"
 author: 정대화
 tags:
-  - TIL
+  - til
 draft: false
 ---
 
@@ -21,4 +21,3 @@ draft: false
 ## 내일 할 일
 
 - 여유가 되면 블로그 문서 작성을 해야겠다.
-

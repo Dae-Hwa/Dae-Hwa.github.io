@@ -4,7 +4,7 @@ createdDate: "2021-01-06"
 updatedDate: "2021-01-06"
 author: 정대화
 tags:
-  - TIL
+  - til
 draft: false
 ---
 
