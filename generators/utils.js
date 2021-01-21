@@ -47,4 +47,26 @@ const addWithCustomData = function (plop, action, data) {
   };
 };
 
-module.exports = {inputRequired, addWithCustomData};
+const addZeroSuffix = function (number) {
+  return number < 10 ? `0${number}` : number;
+}
+
+const getCurrentDate = function () {
+  const curDate = new Date();
+
+  const year = curDate.getFullYear();
+  const month = addZeroSuffix(curDate.getMonth());
+  const date = addZeroSuffix(curDate.getDate());
+
+  return `${year}-${month}-${date}`;
+}
+
+const getCurrentDateTime = function () {
+  const time = new Date().toLocaleTimeString().split(" ")[1].split(":").reduce((prev, cur) => {
+    return `${prev}:${addZeroSuffix(cur)}`
+  }, "")
+
+  return `${getCurrentDate()} ${time}`
+}
+
+module.exports = {inputRequired, addWithCustomData, getCurrentDate, getCurrentDateTime};
