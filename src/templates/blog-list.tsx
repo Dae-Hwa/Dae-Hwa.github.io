@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link } from "gatsby";
 import { graphql } from "gatsby";
-import { Grid, Card, Container, Segment, Label } from "semantic-ui-react";
+import { Grid, Card, Container, Segment, Label, Icon } from "semantic-ui-react";
 import { MarkdownRemarkConnection, ImageSharp } from "../graphql-types";
 import BlogTitle from "../components/BlogTitle";
 import TagsCard from "../components/TagsCard/TagsCard";
@@ -47,11 +47,12 @@ const BlogPage = (props: BlogProps) => {
           </Label>
         ));
 
+        const date = frontmatter.createdDate != frontmatter.updatedDate ? `${frontmatter.createdDate} (updated: ${frontmatter.updatedDate})` : frontmatter.createdDate;
+
         const extra = (
           <Card.Meta>
             <span style={{ fontSize: "8pt" }} className="date">
-              {" "}
-              {frontmatter.updatedDate}
+              {date}
             </span>
           </Card.Meta>
         );
@@ -121,7 +122,7 @@ export const pageQuery = graphql`
 
     # Get posts
     posts: allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___updatedDate] }
+      sort: { order: DESC, fields: [frontmatter___createdDate] }
       filter: $filter
       limit: $postsPerPage
       skip: $skip
@@ -138,6 +139,7 @@ export const pageQuery = graphql`
             tags
             title
             updatedDate(formatString: $dateFormat)
+            createdDate(formatString: $dateFormat)
           }
         }
       }
