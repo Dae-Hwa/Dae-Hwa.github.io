@@ -5,6 +5,7 @@ updatedDate: "2021-01-11"
 author: 정대화
 tags:
   - blog
+  - retrospective
 draft: false
 ---
 
@@ -40,7 +41,7 @@ draft: false
 
 페이지를 만드는 것이 독특했는데, 미리 정의된 쿼리로 데이터를 조회한 뒤 페이지를 미리 만들어둔다. 마치 컴파일 하는 느낌인데 SPA의 속도가 빠른 이유를 눈으로 직접 보게 되었다.
 
-https://www.gatsbyjs.com/docs/programmatically-create-pages-from-data/ 
+https://www.gatsbyjs.com/docs/programmatically-create-pages-from-data/
 
 ### WSL
 
@@ -48,7 +49,7 @@ https://www.gatsbyjs.com/docs/programmatically-create-pages-from-data/
 
 조금 허탈한 건 오늘 파워쉘로 다시 해보니 잘 된다. 아마 디팬던시 문제나 버전 문제였던 것 같은데... 허스키 동작을 어떻게 하는지 살펴보고 어디서 개발할지 정해야겠다.
 
->   아무래도 터미널 환경을 쓰는 일이 잦으니 파워쉘보다는 배쉬가 더 편한 느낌이다.
+> 아무래도 터미널 환경을 쓰는 일이 잦으니 파워쉘보다는 배쉬가 더 편한 느낌이다.
 
 ### 타입스크립트?
 
@@ -56,9 +57,9 @@ https://www.gatsbyjs.com/docs/programmatically-create-pages-from-data/
 
 ### React Semantic UI
 
- https://react.semantic-ui.com/
+https://react.semantic-ui.com/
 
-CSS 프레임워크 중 하나라고 한다. 부트스트랩같은 느낌인듯하다. 어느 정도 제약이 있긴 하지만 설명을 보면서 하니 크게 무리 없이 진행 가능했다. 다만 문제는 반응형 화면에 대한 커스텀인데 공식 문서에서 제공하는 방법은 사용하고 있는 라이브러리들의 버전이 중구난방이라 적용이 어려웠다. 다시 한 번 시도해보고 되지 않는다면 일단은 CSS를 직접 만져야 할듯하다. 차후에 조쉬팀장에게 물어봐야겠다. 
+CSS 프레임워크 중 하나라고 한다. 부트스트랩같은 느낌인듯하다. 어느 정도 제약이 있긴 하지만 설명을 보면서 하니 크게 무리 없이 진행 가능했다. 다만 문제는 반응형 화면에 대한 커스텀인데 공식 문서에서 제공하는 방법은 사용하고 있는 라이브러리들의 버전이 중구난방이라 적용이 어려웠다. 다시 한 번 시도해보고 되지 않는다면 일단은 CSS를 직접 만져야 할듯하다. 차후에 조쉬팀장에게 물어봐야겠다.
 
 ### 이외에도...
 
