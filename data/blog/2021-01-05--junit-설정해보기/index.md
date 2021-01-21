@@ -121,7 +121,7 @@ class SomeClassTest {
 
 ### Maven 프로젝트
 
-아래 depencency를 `pom.xml`에 추가해준다. 이후 [Java Proejct](#Java-Project) 를 따라가면 된다.
+아래 depencency를 `pom.xml`에 추가해준다. 이후 [Java Proejct](#java-project) 를 따라가면 된다.
 
 ```xml
 <dependency>
@@ -134,7 +134,7 @@ class SomeClassTest {
 
 ### Gradle 프로젝트
 
-아래 dependency를 `build.gradle`에 추가해준다. 이후 [Java Proejct](#Java-Project) 를 따라가면 된다.
+아래 dependency를 `build.gradle`에 추가해준다. 이후 [Java Proejct](#java-project) 를 따라가면 된다.
 
 ```gradle
 testCompile group: 'org.junit.jupiter', name: 'junit-jupiter', version: 'latest.release'
