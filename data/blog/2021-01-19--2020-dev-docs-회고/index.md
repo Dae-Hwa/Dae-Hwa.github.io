@@ -4,7 +4,8 @@ createdDate: "2021-01-19"
 updatedDate: "2021-01-19"
 author: 정대화
 tags:
-  - til
+  - retrospective
+  - im-d
 draft: false
 ---
 
