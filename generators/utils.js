@@ -55,7 +55,7 @@ const getCurrentDate = function () {
   const curDate = new Date();
 
   const year = curDate.getFullYear();
-  const month = addZeroSuffix(curDate.getMonth());
+  const month = addZeroSuffix(curDate.getMonth() + 1);
   const date = addZeroSuffix(curDate.getDate());
 
   return `${year}-${month}-${date}`;
@@ -64,7 +64,7 @@ const getCurrentDate = function () {
 const getCurrentDateTime = function () {
   const time = new Date().toLocaleTimeString().split(" ")[1].split(":").reduce((prev, cur) => {
     return `${prev}:${addZeroSuffix(cur)}`
-  }, "")
+  })
 
   return `${getCurrentDate()} ${time}`
 }
