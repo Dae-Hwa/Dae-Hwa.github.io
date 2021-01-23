@@ -48,7 +48,7 @@ const addWithCustomData = function (plop, action, data) {
 };
 
 const addZeroSuffix = function (number) {
-  return number < 10 ? `0${number}` : number;
+  return number < 10 ? `0${Number(number)}` : number;
 }
 
 const getCurrentDate = function () {
@@ -63,10 +63,10 @@ const getCurrentDate = function () {
 
 const getCurrentDateTime = function () {
   const time = new Date().toLocaleTimeString().split(" ")[1].split(":").reduce((prev, cur) => {
-    return `${prev}:${addZeroSuffix(cur)}`
-  })
+    return prev ? `${prev}:${addZeroSuffix(cur)}` : addZeroSuffix(cur);
+  }, "");
 
-  return `${getCurrentDate()} ${time}`
+  return `${getCurrentDate()} ${time}`;
 }
 
 module.exports = {inputRequired, addWithCustomData, getCurrentDate, getCurrentDateTime};
