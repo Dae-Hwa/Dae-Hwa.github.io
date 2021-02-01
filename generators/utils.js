@@ -62,9 +62,8 @@ const getCurrentDate = function () {
 }
 
 const getCurrentDateTime = function () {
-  const time = new Date().toLocaleTimeString().split(" ")[1].split(":").reduce((prev, cur) => {
-    return prev ? `${prev}:${addZeroSuffix(cur)}` : addZeroSuffix(cur);
-  }, "");
+  const curDate = new Date();
+  const time = `${addZeroSuffix(curDate.getHours())}:${addZeroSuffix(curDate.getMinutes())}:${addZeroSuffix(curDate.getSeconds())}`;
 
   return `${getCurrentDate()} ${time}`;
 }
