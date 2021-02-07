@@ -5,7 +5,7 @@ updatedDate: "2021-01-11"
 author: 정대화
 tags:
   - blog
-  - retrospective
+  - 회고
 draft: false
 ---
 
