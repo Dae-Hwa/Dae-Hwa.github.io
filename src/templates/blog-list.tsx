@@ -113,7 +113,7 @@ export const pageQuery = graphql`
     $filter: MarkdownRemarkFilterInput # $tag: String
   ) {
     # Get tags
-    tags: allMarkdownRemark(filter: { frontmatter: { draft: { ne: true } } }) {
+    tags: allMarkdownRemark(filter: $filter) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount

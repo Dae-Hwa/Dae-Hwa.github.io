@@ -18,8 +18,8 @@ exports.onCreateNode = ({node, actions, getNode}) => {
   let slug;
   if (node.internal.type === 'MarkdownRemark') {
     const fileNode = getNode(node.parent);
-    const [basePath, name] = fileNode.relativePath.split('/');
-    slug = `/${basePath}/${name}/`;
+    const [basePath, subPath, name] = fileNode.relativePath.split('/');
+    slug = `/${basePath}/${subPath}/${name}/`;
   }
 
   if (slug) {
@@ -34,6 +34,96 @@ exports.onCreateNode = ({node, actions, getNode}) => {
 // programmatically create pages.
 exports.createPages = ({graphql, actions}) => {
   const {createPage, createRedirect} = actions;
+
+  const craeteCategory = function (posts, basePath) {
+    const pageCount = Math.ceil(posts.length / POSTS_PER_PAGE);
+
+    basePath.charAt(0) != "/" ? basePath = "/" + basePath : "";
+    basePath.charAt(basePath.length - 1) == "/" ? basePath = basePath.substr(0, basePath.length - 1) : "";
+
+    // Create tags pages
+    posts
+      .reduce(
+        (mem, post) => cleanArray(mem.concat(get(post, 'frontmatter.tags'))),
+        []
+      )
+      .forEach(tag => {
+        createPage({
+          path: `${basePath}/tags/${kebabCase(tag)}/`,
+          // 주소 정리 필요
+          // component: slash(templates.tagsPage),
+          component: slash(path.resolve('src/templates/blog-list.tsx')),
+          context: {
+            dateFormat: DATE_FORMAT,
+            postsPerPage: POSTS_PER_PAGE,
+            filter: {
+              frontmatter: {
+                draft: {ne: true},
+                tags: {in: [tag]}
+              },
+              fileAbsolutePath: {regex: `${basePath}/`}
+            }
+          }
+        });
+        times(pageCount, index => {
+          createPage({
+            path: `${basePath}/tags/${kebabCase(tag)}/${index + 1}/`,
+            // 주소 정리 필요
+            // component: slash(templates.blogPage),
+            component: slash(path.resolve('src/templates/blog-list.tsx')),
+            context: {
+              skip: index * POSTS_PER_PAGE,
+              dateFormat: DATE_FORMAT,
+              postsPerPage: POSTS_PER_PAGE,
+              filter: {
+                frontmatter: {
+                  draft: {ne: true},
+                  tags: {in: [tag]}
+                },
+                fileAbsolutePath: {regex: `${basePath}/`}
+              }
+            }
+          });
+        });
+      });
+
+    // Create blog pagination
+    times(pageCount, index => {
+      createPage({
+        path: `${basePath}/${index + 1}/`,
+        // 주소 정리 필요
+        // component: slash(templates.blogPage),
+        component: slash(path.resolve('src/templates/blog-list.tsx')),
+        context: {
+          skip: index * POSTS_PER_PAGE,
+          dateFormat: DATE_FORMAT,
+          postsPerPage: POSTS_PER_PAGE,
+          filter: {
+            frontmatter: {
+              draft: {ne: true}
+            },
+            fileAbsolutePath: {regex: `${basePath}/`}
+          }
+        }
+      });
+    });
+
+    // Create default blog pages
+    createPage({
+      path: `${basePath}`,
+      component: slash(path.resolve('src/templates/blog-list.tsx')),
+      context: {
+        dateFormat: DATE_FORMAT,
+        postsPerPage: POSTS_PER_PAGE,
+        filter: {
+          frontmatter: {
+            draft: {ne: true}
+          },
+          fileAbsolutePath: {regex: `${basePath}/`}
+        }
+      }
+    });
+  }
 
   return new Promise((resolve, reject) => {
     const templates = ['blogPost', 'tagsPage', 'blogPage'].reduce(
@@ -70,7 +160,6 @@ exports.createPages = ({graphql, actions}) => {
       }
 
       const posts = result.data.posts.edges.map(p => p.node);
-      const pageCount = Math.ceil(posts.length / POSTS_PER_PAGE);
 
       // Create blog pages
       posts
@@ -86,87 +175,11 @@ exports.createPages = ({graphql, actions}) => {
           });
         });
 
-      // Create tags pages
-      posts
-        .reduce(
-          (mem, post) => cleanArray(mem.concat(get(post, 'frontmatter.tags'))),
-          []
-        )
-        .forEach(tag => {
-          createPage({
-            path: `/blog/tags/${kebabCase(tag)}/`,
-            // 주소 정리 필요
-            // component: slash(templates.tagsPage),
-            component: slash(path.resolve('src/templates/blog-list.tsx')),
-            context: {
-              dateFormat: DATE_FORMAT,
-              postsPerPage: POSTS_PER_PAGE,
-              filter: {
-                frontmatter: {
-                  draft: {ne: true},
-                  tags: {in: [tag]}
-                },
-                fileAbsolutePath: {regex: '/blog/'}
-              }
-            }
-          });
-          times(pageCount, index => {
-            createPage({
-              path: `/blog/tags/${kebabCase(tag)}/${index + 1}/`,
-              // 주소 정리 필요
-              // component: slash(templates.blogPage),
-              component: slash(path.resolve('src/templates/blog-list.tsx')),
-              context: {
-                skip: index * POSTS_PER_PAGE,
-                dateFormat: DATE_FORMAT,
-                postsPerPage: POSTS_PER_PAGE,
-                filter: {
-                  frontmatter: {
-                    draft: {ne: true},
-                    tags: {in: [tag]}
-                  },
-                  fileAbsolutePath: {regex: '/blog/'}
-                }
-              }
-            });
-          });
-        });
 
-      // Create blog pagination
-      times(pageCount, index => {
-        createPage({
-          path: `/blog/${index + 1}/`,
-          // 주소 정리 필요
-          // component: slash(templates.blogPage),
-          component: slash(path.resolve('src/templates/blog-list.tsx')),
-          context: {
-            skip: index * POSTS_PER_PAGE,
-            dateFormat: DATE_FORMAT,
-            postsPerPage: POSTS_PER_PAGE,
-            filter: {
-              frontmatter: {
-                draft: {ne: true}
-              },
-              fileAbsolutePath: {regex: '/blog/'}
-            }
-          }
-        });
-      });
-
-      // Create default blog pages
-      createPage({
-        path: '/blog/',
-        component: slash(path.resolve('src/templates/blog-list.tsx')),
-        context: {
-          dateFormat: DATE_FORMAT,
-          postsPerPage: POSTS_PER_PAGE,
-          filter: {
-            frontmatter: {
-              draft: {ne: true}
-            }
-          }
-        }
-      });
+      craeteCategory(posts, "blog")
+      craeteCategory(posts, "til")
+      craeteCategory(posts, "post")
+      craeteCategory(posts, "tip")
 
       // Redirect temporary
       createRedirect({
@@ -186,3 +199,4 @@ exports.createPages = ({graphql, actions}) => {
     });
   });
 };
+
