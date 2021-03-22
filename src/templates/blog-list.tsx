@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import { graphql } from "gatsby";
 import { Grid, Card, Container, Segment, Label, Icon } from "semantic-ui-react";
 import { MarkdownRemarkConnection, ImageSharp } from "../graphql-types";
-import BlogTitle from "../components/BlogTitle";
+import BlogTitle, { BlogTitleProps } from "../components/BlogTitle";
 import TagsCard from "../components/TagsCard/TagsCard";
 import BlogPagination from "../components/BlogPagination/BlogPagination";
 import { withLayout, LayoutProps } from "../components/Layout";
@@ -17,6 +17,8 @@ interface BlogProps extends LayoutProps {
   };
   pageContext: {
     tag?: string; // only set into `templates/tags-pages.tsx`
+    blogTitle: BlogTitleProps;
+    basePath: string;
   };
 }
 
@@ -43,7 +45,7 @@ const BlogPage = (props: BlogProps) => {
         } = node;
         const labeldTags = frontmatter.tags.map((tag) => (
           <Label key={tag}>
-            <Link to={`/blog/tags/${tag}/`}>{tag}</Link>
+            <Link to={`${props.pageContext.basePath}/tags/${tag}/`}>{tag}</Link>
           </Label>
         ));
 
@@ -76,12 +78,14 @@ const BlogPage = (props: BlogProps) => {
     </Container>
   );
 
+  const blogTitle = props.pageContext.blogTitle;
+  console.log(props)
   return (
     <Container>
       {/* Title */}
-      <BlogTitle />
+      <BlogTitle name={blogTitle.name} content={blogTitle.content} />
       <div>
-        <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} />
+        <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} basePath={props.pageContext.basePath} />
       </div>
       {/* Content */}
       <Segment vertical>

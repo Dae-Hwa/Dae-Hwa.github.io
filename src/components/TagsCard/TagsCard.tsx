@@ -7,6 +7,7 @@ interface TagsCardProps extends React.HTMLProps<HTMLDivElement> {
   tags: MarkdownRemarkGroupConnection[];
   Link: React.ComponentClass<GatsbyLinkProps<any>>;
   tag?: string;
+  basePath: string;
 }
 
 export default (props: TagsCardProps) => {
@@ -17,7 +18,7 @@ export default (props: TagsCardProps) => {
         const activeStyle = {
           fontWeight: "700",
         };
-        const tagLink = isActive ? `/blog` : `/blog/tags/${tag.fieldValue}/`;
+        const tagLink = isActive ? `${props.basePath}` : `${props.basePath}/tags/${tag.fieldValue}/`;
         return (
           <List.Item as="span" key={tag.fieldValue}>
             <List.Icon name="tag" color={isActive ? "grey" : null} />

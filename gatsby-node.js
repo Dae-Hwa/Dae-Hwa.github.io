@@ -35,11 +35,35 @@ exports.onCreateNode = ({node, actions, getNode}) => {
 exports.createPages = ({graphql, actions}) => {
   const {createPage, createRedirect} = actions;
 
-  const craeteCategory = function (posts, basePath) {
+  const craeteCategory = function (posts, basePath, blogTitle) {
     const pageCount = Math.ceil(posts.length / POSTS_PER_PAGE);
 
     basePath.charAt(0) != "/" ? basePath = "/" + basePath : "";
     basePath.charAt(basePath.length - 1) == "/" ? basePath = basePath.substr(0, basePath.length - 1) : "";
+
+    const context = (index, tag) => {
+      const frontmatter = {
+        draft: {ne: true}
+      }
+
+      tag ? frontmatter.tags = {in: [tag]} : "";
+
+      const context = {
+        dateFormat: DATE_FORMAT,
+        postsPerPage: POSTS_PER_PAGE,
+        blogTitle: blogTitle,
+        basePath: basePath,
+        filter: {
+          frontmatter: frontmatter,
+          fileAbsolutePath: {regex: `${basePath}/`}
+        }
+      }
+
+      index ? context.skip = index * POSTS_PER_PAGE : "";
+
+      return context;
+    }
+
 
     // Create tags pages
     posts
@@ -53,36 +77,16 @@ exports.createPages = ({graphql, actions}) => {
           // 주소 정리 필요
           // component: slash(templates.tagsPage),
           component: slash(path.resolve('src/templates/blog-list.tsx')),
-          context: {
-            dateFormat: DATE_FORMAT,
-            postsPerPage: POSTS_PER_PAGE,
-            filter: {
-              frontmatter: {
-                draft: {ne: true},
-                tags: {in: [tag]}
-              },
-              fileAbsolutePath: {regex: `${basePath}/`}
-            }
-          }
+          context: context('', tag)
         });
+
         times(pageCount, index => {
           createPage({
             path: `${basePath}/tags/${kebabCase(tag)}/${index + 1}/`,
             // 주소 정리 필요
             // component: slash(templates.blogPage),
             component: slash(path.resolve('src/templates/blog-list.tsx')),
-            context: {
-              skip: index * POSTS_PER_PAGE,
-              dateFormat: DATE_FORMAT,
-              postsPerPage: POSTS_PER_PAGE,
-              filter: {
-                frontmatter: {
-                  draft: {ne: true},
-                  tags: {in: [tag]}
-                },
-                fileAbsolutePath: {regex: `${basePath}/`}
-              }
-            }
+            context: context(index, tag)
           });
         });
       });
@@ -94,17 +98,7 @@ exports.createPages = ({graphql, actions}) => {
         // 주소 정리 필요
         // component: slash(templates.blogPage),
         component: slash(path.resolve('src/templates/blog-list.tsx')),
-        context: {
-          skip: index * POSTS_PER_PAGE,
-          dateFormat: DATE_FORMAT,
-          postsPerPage: POSTS_PER_PAGE,
-          filter: {
-            frontmatter: {
-              draft: {ne: true}
-            },
-            fileAbsolutePath: {regex: `${basePath}/`}
-          }
-        }
+        context: context(index)
       });
     });
 
@@ -112,16 +106,7 @@ exports.createPages = ({graphql, actions}) => {
     createPage({
       path: `${basePath}`,
       component: slash(path.resolve('src/templates/blog-list.tsx')),
-      context: {
-        dateFormat: DATE_FORMAT,
-        postsPerPage: POSTS_PER_PAGE,
-        filter: {
-          frontmatter: {
-            draft: {ne: true}
-          },
-          fileAbsolutePath: {regex: `${basePath}/`}
-        }
-      }
+      context: context()
     });
   }
 
@@ -176,10 +161,22 @@ exports.createPages = ({graphql, actions}) => {
         });
 
 
-      craeteCategory(posts, "blog")
-      craeteCategory(posts, "til")
-      craeteCategory(posts, "post")
-      craeteCategory(posts, "tip")
+      craeteCategory(posts, "blog", {
+        name: "모든 글",
+        content: "블로그에 있는 모든 글들의 목록입니다."
+      })
+      craeteCategory(posts, "til", {
+        name: "TIL",
+        content: "Today I Learned"
+      })
+      craeteCategory(posts, "post", {
+        name: "Post",
+        content: "블로그 포스팅"
+      })
+      craeteCategory(posts, "tip", {
+        name: "Tip",
+        content: "짧은 팁 모음"
+      })
 
       // Redirect temporary
       createRedirect({
