@@ -78,12 +78,10 @@ const BlogPage = (props: BlogProps) => {
     </Container>
   );
 
-  const blogTitle = props.pageContext.blogTitle;
-  console.log(props)
   return (
     <Container>
       {/* Title */}
-      <BlogTitle name={blogTitle.name} content={blogTitle.content} />
+      <BlogTitle name={props.pageContext.blogTitle.name} content={props.pageContext.blogTitle.content} />
       <div>
         <TagsCard Link={Link} tags={tags} tag={props.pageContext.tag} basePath={props.pageContext.basePath} />
       </div>
