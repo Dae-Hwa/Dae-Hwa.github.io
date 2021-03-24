@@ -24,6 +24,7 @@ import BlogTitle from "../components/BlogTitle";
 import { DiscussionEmbed } from "disqus-react";
 import { withLayout, LayoutProps } from "../components/Layout";
 import { graphql } from "gatsby";
+import Utterances from "../components/Utterance"
 
 interface BlogPostProps extends LayoutProps {
   data: {
@@ -79,6 +80,7 @@ const BlogPostPage = (props: BlogPostProps) => {
   //   });
 
   const cover = get(frontmatter, "image.children.0.fixed", {});
+
   return (
     <div style={{ maxWidth: "750px", margin: "auto" }}>
       <Container>
@@ -121,6 +123,8 @@ const BlogPostPage = (props: BlogPostProps) => {
           props.data.site.siteMetadata.disqus && (
             <Segment vertical>
               {/* <DiscussionEmbed shortname={props.data.site.siteMetadata.disqus} config={{}} /> */}
+
+              <Utterances repo="Dae-Hwa/utterance-comments" />
             </Segment>
           )}
         <Segment vertical>
