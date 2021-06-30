@@ -84,6 +84,9 @@
 <p>OS</p>
 <ul>
 <li class="task-list-item"><input type="checkbox" disabled> 4.5 + 문서 정리</li>
+<li class="task-list-item"><input type="checkbox" disabled> 기본 개요 정리</li>
+<li class="task-list-item"><input type="checkbox" disabled> 추가 내용 정리</li>
+<li>[ ]</li>
 <li class="task-list-item"><input type="checkbox" disabled> 4.6</li>
 </ul>
 </li>
@@ -124,7 +127,34 @@
 </li>
 </ul>
 <h2 id="0628" style="position:relative;"><a href="#0628" aria-label="0628 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>06.28</h2>
-<p>느긋하게 쉬엄쉬엄 보냈다. 주말에 하지 않았던 공룡책 정리를 했는데, 암묵적 스레딩이라는 파트다. 내용이 이해하기 어렵진 않은데, 양이 엄청 많다. 중요한 부분인가보다. 우선 나온 부분은 스레드풀인데 잘 알고 있는 내용이라 크게 어렵진 않았다. 이전 파트에 이어서 자바의 스레드를 활용하는 방법도 나오는데, 이는 추후에 읽으며 정리해봐야겠다.</p></div><div class="ui vertical segment"><div class="ui label"><a href="/blog/tags/til/">til</a></div></div><div class="ui items"><div class="item"><div class="content"><div class="description">정대화</div><div class="meta">DaeHwa_Jeong@outlook.com</div></div></div></div><div class="ui vertical segment"><div></div></div><div class="ui vertical segment"><div class="ui centered padded grid"></div></div></div></div></div><div style="position:absolute;bottom:0;width:100%" class="ui inverted vertical segment"><div class="ui center aligned container"><p>Powered with <i aria-hidden="true" class="heart icon"></i> by Gatsby 2.0</p></div></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+<p>느긋하게 쉬엄쉬엄 보냈다. 주말에 하지 않았던 공룡책 정리를 했는데, 암묵적 스레딩이라는 파트다. 내용이 이해하기 어렵진 않은데, 양이 엄청 많다. 중요한 부분인가보다. 우선 나온 부분은 스레드풀인데 잘 알고 있는 내용이라 크게 어렵진 않았다. 이전 파트에 이어서 자바의 스레드를 활용하는 방법도 나오는데, 이는 추후에 읽으며 정리해봐야겠다.</p>
+<h2 id="0629" style="position:relative;"><a href="#0629" aria-label="0629 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>06.29</h2>
+<ul>
+<li>포크조인도 라이브러리에서 해주면 암묵적 스레딩이라 할 수 있다고 한다. 자바의 스레드패키지나 퓨처처럼 OpenMP라는 C, C++ 환경에서 쓰이는 스레드 라이브러리가 있다고 한다. 저수준에 가까운 언어들 답게 스레드를 수동으로 조정할 수도 있다고 한다.</li>
+<li>히로와 얘기를 하다가 api와 런타임에 대해 얘기했다. 발단은 JUnit의 모듈이 이해가 되지 않는 다는 것이었다. 구조를 보니 3, 4와 같은 레거시 코드는 vintage 엔진, 5는 jupiter 엔진으로 구동된다. 우선 인터페이스는 말 그대로 접점이다. 하드웨어적으로는 usb 인터페이스, 오디오 인터페이스와 같은 것들이다. 이 것들을 생각해보면 이해하기 쉽다. 소프트웨어적으로는 CLI와 GUI를 생각해보면 이해가 쉬운데, CLI와 GUI는 서로 다른 방식으로 명령을 내리지만, 결국 사용자의 명령을 커널로 전달한다는 같은 기능을 가진다. 즉 공통적으로 들어가는 인터페이스라는 단어에 이런 의미가 내포되어 있는 것이다. 즉 인터페이스란 사용자(클라이언트)와 커널(서버)을 연결시켜주는 부분이라고 할 수 있겠다.</li>
+</ul>
+<p>api도 마찬가지다. 맨 처음 생겨난 os의 측면에서 얘기하면 개발자가 사용하기 쉽게 규격을 제공해주는 것이다. 그런데 이 규격도 잘 생각해보면 해당 메소드를 실행하면 커널과 연결시켜 주겠다는 것이다. 다른 API들도 마찬가지다. 우리가 작성한 REST API도 클라이언트와 백엔드 서버 사이를 연결시켜주는 역할을 한다.</p>
+<p>다시 돌아와서 JUnit의 API 라이브러리는 사용자의 코드와 엔진 사이를 연결시켜줄 것이다. 런타임은 컴파일 타임과 비교되는데 java 실행을 class 파일로 한다는 것을 알고 있다면 구분할 수 있을 것이다. 즉 api 라이브러리가 인터페이스 역할을 하고 런타임 라이브러리들이 구현체 같은 역할을 한다고 생각하면 된다. 이런 식으로 하면 확장에 열려있는 구조가 되는데 모듈에 이런 식으로 적용하니 신기하다는 생각이 들었다. solid를 설명하기 좋은 예시인 것 같다.</p>
+<h2 id="0630" style="position:relative;"><a href="#0630" aria-label="0630 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>06.30</h2>
+<ul>
+<li>
+<p>카카오페이 과제를 시작했다. 외부 IDE 없이 제공하는 클라우드 환경에서 개발하는 것인데, 설정에 꽤 애를 먹었다.</p>
+<ul>
+<li>도커를 끌 수 없는 문제</li>
+</ul>
+<p>kill 명령어를 이용해야 했는데, fuser나 lsof 같은 유틸이 설치 되어 있지 않아 netstat으로 직접 파싱했다.</p>
+<ul>
+<li>껏다 켜면 vscode가 초기화 되는 문제</li>
+</ul>
+<p>settings 파일을 수정해서 해결했다. extension이 날아가는게 제일 짜증나는 문제였는데, 처음에는 추천을 해주다가 아예 워크스페이스같은 단위로 권장 설치를 하게 하는 옵션이 있어 설정해뒀다. 어쨌든 다시 실행해야 하는 것은 변하지 않지만, 이 정도면 처음에 비해서는 훨씬 낫다.</p>
+<ul>
+<li>포매팅 문제</li>
+</ul>
+<p>구글링 해서 메소드체이닝을 깔끔하게 하는 법을 알아내긴 했는데, 인덴트가 계속 8로 변화해서 애를 먹었다. 이걸 찾지 못해서 계속 삽질을 했는데... 왜 그런건지는 이유를 도무지 모르겠다.</p>
+<p>가장 큰 문제는 웹 기반이라 컨트롤 pgup 혹은 pgdn으로 탭을 이동하는 단축키가 중복으로 먹는다는 것이다. 열받는 포인트는 f5는 디버깅으로 잘 작동한다... alt 좌우 이동으로 키를 변경해도 뒤로가기, 앞으로가기와 겹친다. 이건 어떻게 해결을 못 하겠다.</p>
+<p>그래도 설정을 좀 잡으니 꽤 쓸만해졌는데, 이대로 세팅을 옮기면 vscode로 실제 개발도 할 수 있을 것 같다. 또 하나의 벽은 테스트 클래스 자동 생성 기능인데, 일단은 파일 생성을 좀 쉽게 하는 방법이 있는지를 찾아봐야겠다.</p>
+</li>
+</ul></div><div class="ui vertical segment"><div class="ui label"><a href="/blog/tags/til/">til</a></div></div><div class="ui items"><div class="item"><div class="content"><div class="description">정대화</div><div class="meta">DaeHwa_Jeong@outlook.com</div></div></div></div><div class="ui vertical segment"><div></div></div><div class="ui vertical segment"><div class="ui centered padded grid"></div></div></div></div></div><div style="position:absolute;bottom:0;width:100%" class="ui inverted vertical segment"><div class="ui center aligned container"><p>Powered with <i aria-hidden="true" class="heart icon"></i> by Gatsby 2.0</p></div></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
   
   function gaOptout(){document.cookie=disableStr+'=true; expires=Thu, 31 Dec 2099 23:59:59 UTC;path=/',window[disableStr]=!0}var gaProperty='YOUR_GOOGLE_ANALYTICS_TRACKING_ID',disableStr='ga-disable-'+gaProperty;document.cookie.indexOf(disableStr+'=true')>-1&&(window[disableStr]=!0);
   if(!(parseInt(navigator.doNotTrack) === 1 || parseInt(window.doNotTrack) === 1 || parseInt(navigator.msDoNotTrack) === 1 || navigator.doNotTrack === "yes")) {
