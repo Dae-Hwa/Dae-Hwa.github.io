@@ -25,8 +25,8 @@ draft: false
   - [ ] [행렬](https://www.acmicpc.net/problem/1080)
   - [ ] [삼각달팽이](https://programmers.co.kr/learn/courses/30/lessons/68645)
   - [x] [생태학](https://www.acmicpc.net/problem/4358)
-  - [ ] [멀쩡한 사각형](https://programmers.co.kr/learn/courses/30/lessons/62048)
-  - [ ] [오픈채팅방](https://programmers.co.kr/learn/courses/30/lessons/42888)
+  - [x] [멀쩡한 사각형](https://programmers.co.kr/learn/courses/30/lessons/62048)
+  - [x] [오픈채팅방](https://programmers.co.kr/learn/courses/30/lessons/42888)
   - [ ] [문자열 폭발](https://www.acmicpc.net/problem/9935)
 
 - OS
@@ -124,3 +124,11 @@ draft: false
 - BigInteger에 gcd 메소드가 있다. 살펴보다 궁금해진 부분이 있어 디버깅을 해봤는데, int 범위를 넘어갈 경우 int범위만큼 쉬프트 하여 저장한다. 이러면 long 없이 여러개의 int 배열로 표현할 수 있기때문인 것 같다.
 
   소수찾기 메소드도 있었는데, gcd도 느리긴 하지만 소수찾기는 많이 느렸다. 내부적으로 최적화가 되지 않은 듯한 느낌이었는데, 이유를 찾아봐야 할 것 같다.
+
+## 07.16
+
+- 멀쩡한 사각형 풀이. 최대공약수를 이용하니 쉽게 풀이 됐다. 선의 길이 공식을 사용하면 시간초과가 나온다고 한다.
+
+- 오픈채팅방은 현재 사용자 목록을 해쉬테이블에 저장하고, 객체 링크를 가진 리스트를 만드는 것으로 해결했다.
+
+- ATDD를 함으로 얻는 장점 중 시작과 끝이 정해진다는 점, 불필요한 코드 생성이 적어진다는 점이 있다고 한다. 그리고 outside in tdd 라고 부르기도 하는 것 같다. 큰 내용을 정하고 세부 내용을 구현해서 그런가보다.
