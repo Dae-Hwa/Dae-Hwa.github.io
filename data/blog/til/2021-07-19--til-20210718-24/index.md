@@ -26,6 +26,17 @@ draft: false
   - [ ] [삼각달팽이](https://programmers.co.kr/learn/courses/30/lessons/68645)
   - [ ] [문자열 폭발](https://www.acmicpc.net/problem/9935)
   - [x] [문자열 압축](https://programmers.co.kr/learn/courses/30/lessons/60057)
+  - [x] [정수 제곱근 판별](https://programmers.co.kr/learn/courses/30/lessons/12934)
+  - [x] [실패율](https://programmers.co.kr/learn/courses/30/lessons/42889)
+  - [x] [제일 작은 수 제거하기](https://programmers.co.kr/learn/courses/30/lessons/12935)
+  - [x] [짝수와 홀수](https://programmers.co.kr/learn/courses/30/lessons/12937)
+  - [x] [최대공약수와 최소공배수](https://programmers.co.kr/learn/courses/30/lessons/12940)
+  - [x] [콜라츠 추측](https://programmers.co.kr/learn/courses/30/lessons/12943)
+  - [x] [하샤드 수](https://programmers.co.kr/learn/courses/30/lessons/12947)
+  - [x] [핸드폰 번호 가리기](https://programmers.co.kr/learn/courses/30/lessons/12948)
+  - [x] [행렬의 덧셈](https://programmers.co.kr/learn/courses/30/lessons/12950)
+  - [x] [x만큼 간격이 있는 n개의 숫자](https://programmers.co.kr/learn/courses/30/lessons/12954)
+  - [x] [직사각형 별찍기](https://programmers.co.kr/learn/courses/30/lessons/12969)
 
 - OS
   - [ ] 4.6
@@ -167,3 +178,13 @@ RestAssured를 테스트해봤다. 전체적으로 TestRestTemplate과 유사한
 ### ATDD 정리
 
 ATDD정리는 얼추 끝났다. 글 몇 개만 더 읽어보고 마무리하려는데, 이것 보다도 단위테스트나 인수테스트에 대한 개념을 잡는게 더 중요할 것 같기도 하다. 그리고 마틴파울러 아저씨가 쓴 글 중에 mock을 이용한 단위 테스트와 클래식한 단위테스트를 비교해둔 글이 있는데 그 것도 읽어보면 좋을 것 같다.
+
+## 07.24
+
+### 포스트스쿼드5
+
+제이미가 와이어프레임을 그려와줘서 그걸로 얘기를 나눴다. 대충 정리는 된 것 같고, 백엔드 요구사항과 프런트 요구사항을 각자 도출해서 취합해보려 한다. 서로 빠진 부분을 찾을 수 있지 않을까 싶다.
+
+### 알고리즘 스파르타
+
+12시부터 4시까지 알고리즘을 풀기로 했다. 혼자하면 집중이 흐트러지기 쉬운데 좋은 것 같다. 그동안 알고리즘 문제 정리가 잘 되지 않았었는데, 브랜치를 이용해 정리를 해보려고 레포를 새로 팠다. 지금까지는 나쁘지 않은 것 같다.
