@@ -8,7 +8,7 @@ tags:
 draft: false
 ---
 
-많이 헷갈리는 개념이다. 주로 authentication과 authorization을 많이 비교한다. 개인적으로 certification도 헷갈려서 맨 하단에 작게 정리해뒀다.
+많이 헷갈리는 개념이다. 주로 authentication과 authorization을 많이 비교한다.
 
 authentication은 특정 user가 해당 user라고 주장하는 것이 옳은지 판단하는 것이다. authorization은 user의 access 가능여부를 판단하는 것이다.
 
@@ -30,10 +30,3 @@ authentication은 특정 user가 해당 user라고 주장하는 것이 옳은지
 - 권한이 있는지 확인
 
 > 로그인 이후 특정 행동을 할 수 있는 권한이 있는지 확인하는 것
-
-## certification
-
-- 증명
-- 특정 기준을 통과했다는 증거를 확인하는 것
-
-> 공인인증서
