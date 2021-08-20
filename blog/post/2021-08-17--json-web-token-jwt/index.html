@@ -48,87 +48,178 @@
         }
       }
     })
-  </script><link rel="icon" href="/favicon-32x32.png?v=13734f12950dfc300784c766f5dd534c" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#191919"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=13734f12950dfc300784c766f5dd534c"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=13734f12950dfc300784c766f5dd534c"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=13734f12950dfc300784c766f5dd534c"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=13734f12950dfc300784c766f5dd534c"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=13734f12950dfc300784c766f5dd534c"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=13734f12950dfc300784c766f5dd534c"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=13734f12950dfc300784c766f5dd534c"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=13734f12950dfc300784c766f5dd534c"/><link as="script" rel="preload" href="/webpack-runtime-6d5deba61ed6dbd5e3b2.js"/><link as="script" rel="preload" href="/framework-6c3ead24af170cdcb87c.js"/><link as="script" rel="preload" href="/app-b0bd7ca9350f5f677417.js"/><link as="script" rel="preload" href="/styles-e9d24b1846c7d6eb9685.js"/><link as="script" rel="preload" href="/1d145c6f883810d21d94d76108f7c4a9a48fd610-b9846fa97bc726f7e809.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-tsx-9337b58e5045d7b4e81b.js"/><link as="fetch" rel="preload" href="/page-data\blog\post\2021-08-17--json-web-token-jwt\page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data\app-data.json" crossorigin="anonymous"/><title>정대화 블로그</title><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/><title data-react-helmet="true"></title><meta name="google-site-verification" content="KcBkKb98B6KkvhBZep62SKTUISv0CSGhpMa2f6viIck"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="ui segment pushable"><div class="ui vertical labeled icon ui slide along left thin sidebar menu"><a class="active item" href="/blog/"><i aria-hidden="true" class="newspaper icon"></i>모든 글</a><a class="item" href="/post/"><i aria-hidden="true" class="newspaper icon"></i>post</a><a class="item" href="/til/"><i aria-hidden="true" class="newspaper icon"></i>TIL</a><a class="item" href="/tip/"><i aria-hidden="true" class="newspaper icon"></i>tip</a></div><div style="min-height:100vh" class="pusher"><div class="ui container"><div class="ui large pointing secondary menu"><a class="icon item mobile only"><i aria-hidden="true" class="sidebar icon"></i></a><h1 style="margin-bottom:6px" class="ui header"><div class="content">Dae&#x27;Log</div></h1><a class="active item mobile hidden" href="/blog/">모든 글</a><a class="item mobile hidden" href="/post/">Post</a><a class="item mobile hidden" href="/til/">TIL</a><a class="item mobile hidden" href="/tip/">Tip</a></div></div><div style="padding-bottom:60px"><div style="max-width:750px;margin:auto"><div class="ui container"><div style="border:none" class="ui vertical segment"><div class="ui items"><div class="item"><div class="content"><div class="header"><h1 class="ui header">JSON Web Token(JWT)</h1></div><div class="meta"><i aria-hidden="true" class="clock icon"></i>2021. 08. 17.</div></div></div></div></div><div style="border:none;font-size:1.1em" class="ui vertical segment"><p>JSON Web Tokens are an open, industry standard <a href="https://tools.ietf.org/html/rfc7519">RFC 7519</a> method for representing claims securely between two parties.</p>
-<p>JWT는 두 당사자 간의 클레임(claim)을 안전하게 표현하기 위한 RFC 7519 메소드다</p>
-<p>JWT는 두 당사자(parties) 간 정보(claim)을 JSON 객체로 안전하게 전송하는 간결하고 독립적인 방법(self-contained way)이다. JWT는 <a href="https://tools.ietf.org/html/rfc7519">RFC 7519</a> 표준을 따른다.</p>
-<p>이러한 정보는 디지털 서명때문에 검증되고 신뢰할 수 있다. 비밀 또는 RSA, HCDSA를 사용하는 공개/비밀 키 쌍을 사용할 수 있다.</p>
-<p>서명된 토큰은 그 안에 포함된 claim의 무결성을 검증할 수 있다. 또한, 암호화된 토큰은 claim을 다른 사용자들(parties)에게 숨길 수 있다. 이러한 서명은 공개/비밀 키 쌍을 이용하고, 비밀키를 가진 사용자만 서명(sign in)했다고 증명한다.</p>
-<h2 id="언제-써야하나" style="position:relative;"><a href="#%EC%96%B8%EC%A0%9C-%EC%8D%A8%EC%95%BC%ED%95%98%EB%82%98" aria-label="언제 써야하나 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>언제 써야하나?</h2>
+  </script><link rel="icon" href="/favicon-32x32.png?v=13734f12950dfc300784c766f5dd534c" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#191919"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=13734f12950dfc300784c766f5dd534c"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=13734f12950dfc300784c766f5dd534c"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=13734f12950dfc300784c766f5dd534c"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=13734f12950dfc300784c766f5dd534c"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=13734f12950dfc300784c766f5dd534c"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=13734f12950dfc300784c766f5dd534c"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=13734f12950dfc300784c766f5dd534c"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=13734f12950dfc300784c766f5dd534c"/><link as="script" rel="preload" href="/webpack-runtime-6d5deba61ed6dbd5e3b2.js"/><link as="script" rel="preload" href="/framework-6c3ead24af170cdcb87c.js"/><link as="script" rel="preload" href="/app-b0bd7ca9350f5f677417.js"/><link as="script" rel="preload" href="/styles-e9d24b1846c7d6eb9685.js"/><link as="script" rel="preload" href="/1d145c6f883810d21d94d76108f7c4a9a48fd610-b9846fa97bc726f7e809.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-tsx-9337b58e5045d7b4e81b.js"/><link as="fetch" rel="preload" href="/page-data\blog\post\2021-08-17--json-web-token-jwt\page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data\app-data.json" crossorigin="anonymous"/><title>정대화 블로그</title><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/><title data-react-helmet="true"></title><meta name="google-site-verification" content="KcBkKb98B6KkvhBZep62SKTUISv0CSGhpMa2f6viIck"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="ui segment pushable"><div class="ui vertical labeled icon ui slide along left thin sidebar menu"><a class="active item" href="/blog/"><i aria-hidden="true" class="newspaper icon"></i>모든 글</a><a class="item" href="/post/"><i aria-hidden="true" class="newspaper icon"></i>post</a><a class="item" href="/til/"><i aria-hidden="true" class="newspaper icon"></i>TIL</a><a class="item" href="/tip/"><i aria-hidden="true" class="newspaper icon"></i>tip</a></div><div style="min-height:100vh" class="pusher"><div class="ui container"><div class="ui large pointing secondary menu"><a class="icon item mobile only"><i aria-hidden="true" class="sidebar icon"></i></a><h1 style="margin-bottom:6px" class="ui header"><div class="content">Dae&#x27;Log</div></h1><a class="active item mobile hidden" href="/blog/">모든 글</a><a class="item mobile hidden" href="/post/">Post</a><a class="item mobile hidden" href="/til/">TIL</a><a class="item mobile hidden" href="/tip/">Tip</a></div></div><div style="padding-bottom:60px"><div style="max-width:750px;margin:auto"><div class="ui container"><div style="border:none" class="ui vertical segment"><div class="ui items"><div class="item"><div class="content"><div class="header"><h1 class="ui header">JWT(JSON Web Token)</h1></div><div class="meta"><i aria-hidden="true" class="clock icon"></i>2021. 08. 17.</div></div></div></div></div><div style="border:none;font-size:1.1em" class="ui vertical segment"><h2 id="들어가기에-앞서" style="position:relative;"><a href="#%EB%93%A4%EC%96%B4%EA%B0%80%EA%B8%B0%EC%97%90-%EC%95%9E%EC%84%9C" aria-label="들어가기에 앞서 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>들어가기에 앞서</h2>
+<p>JWT를 찾아보면 명확하지 않은 설명들이 간간히 있었고 대부분의 블로그에서 비슷한 방식으로 설명해 의문점이 많이 생겼다. 그런 부분들을 해소하기 위해 조사하며 정리한 글이다. 따라서 간단한 컨셉을 파악하는 것은 <a href="https://jwt.io/introduction">https://jwt.io/introduction</a> 나 블로그에서 흔히 설명하는 방식의 간단한 글을 찾아보는 게 더 도움이 될 수 있다.</p>
+<h2 id="jwtjson-web-token-개요" style="position:relative;"><a href="#jwtjson-web-token-%EA%B0%9C%EC%9A%94" aria-label="jwtjson web token 개요 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JWT(JSON Web Token) 개요</h2>
+<p>JWT는 정보를 간결하게 주고받을 수 있는 기술이다. 간결(compact)하고 URL-safe하므로 HTTP 헤더나 URI 쿼리 파라미터와 같이 공간이 제한된 환경에서도 쉽게 사용할 수 있다. 이때, 주고받는 정보는 claim이라 한다.</p>
+<blockquote>
+<p>Claim은 어떠한 주제에 대해 주장하는 정보(A piece of information asserted about a subject)다. name/value 페어로 구성된다. 주제에 대해 주장한다는 말이 어색해 보이는데, asserted는 단언하여 주장하는 뉘앙스다. 그리고 JWT는 두 당사자(parties)에 관한 것이다. 따라서 어떤 주제에 대해 확신을 가지고 설명을 하는 느낌이고, claim 또한 어떠한 주제에 대해 확신할 수 있는 정보를 담았다는 뉘앙스로 생각된다. 예를 들어, 어떠한 토큰은 특정 주체가 발급했다고 확신할 수 있다는 식이다. claim은 암호화되거나 서명으로 무결성이 보장되기 때문이다.</p>
+</blockquote>
+<p>JWT는 인터페이스 역할을 해주는 추상적인 개념이고 실제 구현은 JWS와 JWE로 나누어진다.</p>
+<h3 id="jwsjson-web-signature와-jwejson-web-encryption" style="position:relative;"><a href="#jwsjson-web-signature%EC%99%80-jwejson-web-encryption" aria-label="jwsjson web signature와 jwejson web encryption permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JWS(JSON Web Signature)와 JWE(JSON Web Encryption)</h3>
+<p>Cliam은 서명을 하거나 암호화하여 사용한다. 디지털 서명을 하는 방식은 JWS(JSON Web Signature)방식이고 암호화 하는 방식은 JWE(JSON Web Encryption)다. 이러한 claim의 집합은 JSON 객체로 표현되어 전달되는데, 이를 JWT Claims Set이라 한다. 모든 JSON data type을 calim의 값으로 사용할 수 있다.</p>
+<p>디지털 서명의 경우 claim의 내용이 노출되지만 서명을 이용하여 원본이 맞는지 무결성을 파악할 수 있다. 반면, 암호화 방식은 claim 자체를 암호화시켜 내용을 파악할 수 없다. 보안은 당연히 암호화 방식이 좋지만, 클라이언트가 claim의 데이터를 가져다 쓸 수 있도록 서명 방식을 사용한다. 따라서 대부분 JWT라고 하면 JWS를 가리킨다. 이 글에서도 JWE보다는 JWS에 조금 더 무게를 실어서 설명을 할 것이다.</p>
+<p>JWT는 독립적(Self-contained)이라고 표현하기도 한다. 쉽게 얘기하면, 페이로드 안에 사용자에 대한 정보가 모두 들어있으면 데이터베이스 조회 작업이 줄어든다. 다른 측면에서 보면, 이러한 특성 때문에 데이터가 노출되는 JWS 방식의 경우 민감한 정보는 넣지 않는 것이 바람직하다.</p>
+<p>JWS와 JWE는 모두 base64URL 인코딩되어 전달된다. 각 방식의 구성 요소들을 part라고 부르는데 이는 <code class="language-text">.</code>을 구분자로 나누어진다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">// 줄 바꿈은 표현을 위해 임의로 넣은 것이다. 실제로는 한 줄로 붙어서 전송된다.
+eyJ0eXAiOiJKV1QiLA0KICJhbGciOiJIUzI1NiJ9
+.
+eyJpc3MiOiJqb2UiLA0KICJleHAiOjEzMDA4MTkzODAsDQogImh0dHA6Ly9leGFtcGxlLmNvbS9pc19yb290Ijp0cnVlfQ
+.
+dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk</code></pre></div>
+<h2 id="구조" style="position:relative;"><a href="#%EA%B5%AC%EC%A1%B0" aria-label="구조 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>구조</h2>
+<p>앞서 말했듯, 주로 JWS의 구조에 대해 설명할 것이다. JWE의 예시는 <a href="https://datatracker.ietf.org/doc/html/rfc7516#section-3.3">Example JWE</a>에서 확인해볼 수 있다.</p>
+<p>JWS의 구조는 JOSE Header, JWS Payload, JWS Signature로 구성된다. 각 구성요소를 part라고 하고, 각 part는 위에서 봤듯이 <code class="language-text">.</code>으로 구분되어 표현된다.</p>
+<blockquote>
+<p>registered header와 claim의 값은 대부분 3글자 약어로 되어있는데, 이는 JWT의 주요 목표가 compact한 표현이기 때문이라 한다.</p>
+</blockquote>
+<h3 id="josejson-object-signing-and-encryption-header" style="position:relative;"><a href="#josejson-object-signing-and-encryption-header" aria-label="josejson object signing and encryption header permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JOSE(JSON Object Signing and Encryption) Header</h3>
+<blockquote>
+<p>Javascript Object Signing and Encryption이라 부르기도 하는데, 이 글에서는 <a href="https://datatracker.ietf.org/doc/html/rfc7515#section-2">JWS - 용어설명</a>에서 가져와 사용한다.</p>
+</blockquote>
+<p>JOSE Header part는 JWT의 구성요소이기 때문에 JWS와 JWE 둘 다 사용한다. 주로 JWT Claims Set에 적용될 암호화 작업을 설명해주고 옵셔널하게 그 외의 속성이 들어간다. JOSE Header에 들어가는 값들은 JWS와 JWE 중 무엇을 사용하느냐에 따라 달라진다.</p>
+<blockquote>
+<p>다시 말하면, JOSE Header에 들어가 있는 값이 JWS를 위한 것이면 JWT Claims Set이 JWS Payload가 되는 것이고, JWE를 위한 것이면 JWT Claims Set이 JWE에 의해 암호화된 plaintext가 되는 것이다.</p>
+</blockquote>
+<p>아래에서는 주요한 속성들만 설명한다. 나머지는 <a href="https://datatracker.ietf.org/doc/html/rfc7515#section-4">JWS - JOSE Header</a>에 자세히 나와있다.</p>
+<h4 id="jwt-header" style="position:relative;"><a href="#jwt-header" aria-label="jwt header permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JWT Header</h4>
 <ul>
+<li>typ : type을 뜻한다. JWT가 아닌 객체가 존재할 수도 있을 때 구분하기 위해 사용한다. 옵셔널한 값이지만, 만약 사용해야 하고 JWT임을 나타내야 한다면 <code class="language-text">JWT</code>를 값으로 넣는 것이 권장된다. 현재는 대소문자를 가리지 않지만, 레거시 중에 대문자만 인식하는 것이 있을 수도 있다고 한다.</li>
+<li>cty : content type을 뜻한다. 일반적인 경우에는 사용하지 않는 것이 권장되고, 중첩된 구조에서는 반드시 사용되어야 한다고 한다. 이 경우에도 <code class="language-text">JWT</code> 를 값으로 사용하는 것이 권장된다.</li>
+</ul>
+<h4 id="jws-jwe-header" style="position:relative;"><a href="#jws-jwe-header" aria-label="jws jwe header permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JWS, JWE Header</h4>
+<ul>
+<li>alg : algorithm을 뜻한다. 필수값으로 반드시 넣어야 한다. 어떤 알고리즘을 사용할지 선택하는 것인데, JWS에서 사용 가능한 값은 <a href="https://datatracker.ietf.org/doc/html/rfc7518#section-3.1">JWA - alg for JWS</a>에서 확인할 수 있다.</li>
+<li>jwk : Json Web Key를 뜻한다. JWS에 디지털 서명하는데 해당하는 공개키다. 형식의 예시는 <a href="https://datatracker.ietf.org/doc/html/rfc7517#section-3">Example JWK</a>에서 확인할 수 있다.</li>
+<li>kid : 키에 대한 힌트를 나타낸다. 이를 이용하여 키 변경을 명시적으로 나타낼 수 있다.</li>
+</ul>
+<p>이외에도 JWS와 JWE헤더는 public, private 헤더를 지원한다.</p>
+<h3 id="jws-payload" style="position:relative;"><a href="#jws-payload" aria-label="jws payload permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JWS Payload</h3>
+<p>JOSE Header에 JWS를 위한 값들이 들이었으면 JWT Claims Set이 JWS Payload가 된다. 따라서 JWS Payload는 JWT Claims Set의 규칙을 따른다.</p>
+<blockquote>
+<p>당연히 JWE를 위한 값들이 들어있으면 JWT Claims Set은 plaintext로 암호화된 JWE가 된다.</p>
+</blockquote>
+<h4 id="claim" style="position:relative;"><a href="#claim" aria-label="claim permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Claim</h4>
+<p>Claim은 name/value의 쌍으로 이루어져 있고, JWT Claims Set 안에 있는 name은 unique한 값이어야 한다. 그렇지 않을 경우 파싱이 거부되거나 마지막 name만 파싱된다. 이러한 동작은 구현체에 따라 다르기 때문에 확인을 해봐야 하는데, 근본적으로 하지 않는 것이 좋다. 또한 JWT가 이해할 수 없는 claim은 무시된다.</p>
+<p>JWT Claim Names는 세 가지로 분류되는데, registered, public, private이다.</p>
+<h5 id="registerd-claim-names" style="position:relative;"><a href="#registerd-claim-names" aria-label="registerd claim names permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Registerd Claim Names</h5>
+<ul>
+<li>iss : Issuer, 발급 주체</li>
+<li>
+<p>sub : subject, JWT의 주제(제목). JWT의 내용은 일반적으로 sub에 대한 설명이다.</p>
+<blockquote>
+<p>sub를 단순히 제목으로 사용하기보다는, user ID와 같이 전체를 포괄하는 내용을 담아주는 용도로 많이 사용하는 듯하다.</p>
+</blockquote>
+</li>
+<li>aud : Audience, 받는 주체</li>
+<li>exp : Expiration, 만료시간. NumericDate value를 포함하는 숫자여야 한다.</li>
+<li>nbf : Not Before, 토큰의 활성 시작 시간. 예를 들어 nbf가 내일이면 오늘은 해당 토큰을 사용할 수 없다.  NumericDate value를 포함하는 숫자여야 한다.</li>
+<li>iat : Issued At, 토큰이 발급된 시간. age를 계산하는 데 사용할 수 있다.  NumericDate value를 포함하는 숫자여야 한다.</li>
+<li>jti : JWT ID, JWT의 유니크한 ID값. 중복 값이 생성될 확률이 무시할 수 있는 정도로 낮은 방법을 택해야 한다. 토큰이 재사용되는 것을 막아주는 용도로 사용할 수 있다.</li>
+</ul>
+<blockquote>
+<p>위에 나온 registered claim names의 자세한 내용은 <a href="https://datatracker.ietf.org/doc/html/rfc7519#section-4.1">JWT - Registered Claim Names</a>에서 확인할 수 있다.</p>
+</blockquote>
+<p>필수적으로 사용해야 하는 registered claim이 있는 것은 아니지만, 이를 사용해서 보다 유용하고 상호운용성이 있도록 만들 수 있다. 또한 발급 주체의 구현이나 상황(context)에 따라 반드시 포함해야 하는 claim을 정해놨을 수도 있다.</p>
+<p>public은 충돌이 일어나지 않는 이름(Collision-Resistant Name)이어야 하고, private은 registered나 public이 아닌 claim을 뜻한다.</p>
+<h3 id="jws-signature" style="position:relative;"><a href="#jws-signature" aria-label="jws signature permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JWS Signature</h3>
+<p>JWS Signature는 아래와 같은 작업들을 수행하여 만들어진다.</p>
+<ol>
+<li>JOSE Header를 넣어 JSON 객체를 만든 뒤 BASE64URL 방식으로 인코딩한다.</li>
+<li>JWS Payload로 사용할 컨텐츠를 만든 뒤 BASE64URL 방식으로 인코딩한다.</li>
+<li>
+<p>1과 2에서 만들었던 내용들을 사용해서 JWS Signature를 만든다.</p>
+<ol>
+<li><code class="language-text">BASE64URL(JOSE Header).BASE64URL(JWS Payload).</code>가 Signature 계산의 인풋이 된다.</li>
+<li>알고리즘은 JOSE Header의 alg 파라미터의 값으로 정해진다. 따라서 위에서도 살펴봤듯, alg 파라미터의 값은 반드시 존재해야 하며 JWS Signature에서 사용할 수 있는 알고리즘이어야 한다.</li>
+<li>3-1의 값을 3-2의 알고리즘을 이용하여 디지털 서명으로 바꿔준 뒤, BASE64URL 방식으로 인코딩한다.</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>따라서, JWS를 사용하는 JWT의 결과는 <code class="language-text">BASE64URL(JOSE Header).BASE64URL(JWS Payload).BASE64URL(JWS Signature)</code>와 같은 형태가 된다.</p>
+</blockquote>
+<p>여기서 3-2의 알고리즘에 따라 Message Signature 방식과 MAC 방식으로 구분된다. 간단히 설명하면, MAC는 대칭키 방식으로 암호화하는 것이고, Message Signature 방식은 비대칭 키 방식으로 암호화하는 것이다. MAC는 대칭 키이기 때문에 클라이언트에서 검증 작업을 하기 어렵다. 따라서 서버에서 모든 것을 처리할 수 있거나, 간단한 작업에 사용되며 로그인 인증 토큰으로 많이 사용된다.</p>
+<blockquote>
+<p><a href="https://connect2id.com/products/nimbus-jose-jwt/algorithm-selection-guide">How to select a JOSE / JWT cryptographic algorithm for your application</a>에 각 방식의 비교와 도입 전 고려해야할 부분들이 정리돼있다. JWE도 함께 비교한다.</p>
+</blockquote>
+<p>어찌 됐건, JWS는 암호화된 Signature 파트를 비밀키로 검증한다. JOSE Header와 JWS Payload를 암호화하므로 해당 부분들에 변조가 있었는지 파악할 수 있다. 즉 데이터는 노출되지만, 데이터가 바뀔 위험이 없다. 따라서 로그인 인증 토큰으로 사용할 수 있는 것이다.</p>
+<h2 id="사용-예시" style="position:relative;"><a href="#%EC%82%AC%EC%9A%A9-%EC%98%88%EC%8B%9C" aria-label="사용 예시 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>사용 예시</h2>
+<ul>
+<li>
+<p>인증(Authenticaition)</p>
+<ul>
+<li>사용자가 자신의 인증 정보(credentials)를 이용하여 성공적으로 로그인하면 ID토큰을 반환된다.</li>
+</ul>
+<blockquote>
+<p>OAuth2를 기반으로 하는 인증 방식인 <a href="https://openid.net/specs/openid-connect-core-1_0.html#IDToken">OIDC(OpenID Connect)</a>스펙은 항상 JWT를 ID 토큰으로 사용하도록 되어 있다.</p>
+</blockquote>
+</li>
 <li>
 <p>권한 확인(Authorization)</p>
 <ul>
-<li>가장 많이 쓰는 시나리오. 사용자가 로그인하면 다음 요청부터는 JWT를 포함한다. 사용자는 해당 토큰으로 허용되는 경로, 서비스, 자원에 접근할 수 있다.</li>
+<li>가장 많이 쓰는 시나리오. 사용자가 로그인하면 다음 요청부터는 JWT를 포함하여 서버에 요청을 보낸다. 서버는 해당 토큰이 유효한지 검증하고 접근할 수 없는 곳을 요청하면 거부할 수 있다.</li>
 <li>오버헤드가 적고 여러 도메인에서 쉽게 사용할 수 있기 때문에 SSO(Single Sign On)에 JWT가 널리 사용된다.</li>
 </ul>
 <blockquote>
-<p>다른 방법으로 SAML이 있다.</p>
+<p>다른 방법으로 SAML과 SWT가 있다. 아래에서 간단히 비교한다.</p>
 </blockquote>
 </li>
 <li>
 <p>정보 교환</p>
 <ul>
-<li>JWT는 공개/비밀 키와 같은 방법으로 서명될 수 있다. 받는 사람은 JWT에 있는 보낸 사람이 실제 전송자인 것을 믿을 수 있다. 추가적으로 서명은 헤더와 페이로드를 사용하여 계산되기 때문에 컨텐츠가 변조되지 않았는지 확인할 수 있다.</li>
+<li>이 경우 비대칭 키 방식을 사용하면 더 좋을 것이다. 그러면 받는 사람도 안전하게 서명을 검증해 유효한지 확인할 수 있다. 즉, 받는 사람이 JWT에 있는 보낸 사람과 데이터가 변하지 않았다는 것을 믿을 수 있다.</li>
 </ul>
 <blockquote>
-<p>구조설명 이후에 나와야 좋을듯</p>
+<p>대칭 키 방식을 사용하면 비밀 키를 주고받아야 하기 때문에 보안에 좋지 않을 수 있다.</p>
 </blockquote>
 </li>
 </ul>
-<h2 id="구조" style="position:relative;"><a href="#%EA%B5%AC%EC%A1%B0" aria-label="구조 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>구조</h2>
-<p><code class="language-text">.</code>으로 구분 된 세 부분으로 구성된다.</p>
-<p><code class="language-text">Header.Payload.Signature</code></p>
-<h3 id="header" style="position:relative;"><a href="#header" aria-label="header permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Header</h3>
-<p>헤더는 보통 두 부분으로 구성된다. 각각 서명 알고리즘 <code class="language-text">alg</code>와 토큰의 타입 <code class="language-text">typ</code>다. 토큰의 타입은 일반적으로 <code class="language-text">JWT</code>다.</p>
-<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"alg"</span><span class="token operator">:</span> <span class="token string">"HS256"</span><span class="token punctuation">,</span>
-  <span class="token property">"typ"</span><span class="token operator">:</span> <span class="token string">"JWT"</span>
-<span class="token punctuation">}</span></code></pre></div>
-<h3 id="payload" style="position:relative;"><a href="#payload" aria-label="payload permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Payload</h3>
-<p>payload는 claim을 포함한다. claim은 entity(보통 사용자) 및 추가적인 데이터에 관한 설명이다. claim에는 세 가지 종류가 있다.</p>
+<h2 id="장점과-단점" style="position:relative;"><a href="#%EC%9E%A5%EC%A0%90%EA%B3%BC-%EB%8B%A8%EC%A0%90" aria-label="장점과 단점 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>장점과 단점</h2>
 <ul>
 <li>
-<p>Registered claims</p>
+<p>장점</p>
 <ul>
-<li>미리 정의된 클레임 집합</li>
-<li>필수 항목은 아니지만 유용하고 상호 유용한 클레임  집합을 위해 권장</li>
-<li>iss(발급자), exp(만료 시간), sub(주제), aud(청중) 등이 있다.</li>
+<li>사용자 편의성이 증가한다.</li>
 </ul>
-</li>
-<li>
-<p>Public claims</p>
-<ul>
-<li>사용자가 마음대로 정의할 수 있음</li>
-<li>충돌 방지를 위해 <a href="https://www.iana.org/assignments/jwt/jwt.xhtml">IANA JSON Web Token Registry</a> 에 정의할 수 있음</li>
-<li>혹은 충돌이 일어나지 않는 네임스페이스를 포함하는 URI를 정의해야함</li>
-</ul>
-</li>
-<li>
-<p>private claims</p>
-<ul>
-<li>parties 간 정보를 교환하기로 동의하여 만들어진 커스텀 claims 중 registered나 public이 아닌 클레임</li>
-</ul>
-</li>
-</ul>
-<p>이러한 페이로드는 Base64Url로 인코딩 된다.</p>
-<h3 id="signature" style="position:relative;"><a href="#signature" aria-label="signature permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Signature</h3>
-<p>시그니처 파트를 만드려면 인코딩된 헤더, 인코딩된 페이로드, 시크릿 키, 헤더에 지정된 알고리즘으로 서명해야 한다. 예를 들어, HMAC SHA256 알고리즘을 사용하려면 시그니처는 다음과 같이 만들어진다.</p>
-<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token constant">HMACSHA256</span><span class="token punctuation">(</span>
-  <span class="token function">base64UrlEncode</span><span class="token punctuation">(</span>header<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"."</span> <span class="token operator">+</span>
-  <span class="token function">base64UrlEncode</span><span class="token punctuation">(</span>payload<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  secret<span class="token punctuation">)</span></code></pre></div>
-<p>시그니처는 메세지 변조가 일어나지 않았는지 확인하는데 사용된다. 개인 키로 서명된 토큰의 경우 JWT의 sender가 누군지 검증할 수 있다.</p>
-<h3 id="합치기putting-all-together" style="position:relative;"><a href="#%ED%95%A9%EC%B9%98%EA%B8%B0putting-all-together" aria-label="합치기putting all together permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>합치기(Putting all together)</h3>
-<p>결과(output)는 <code class="language-text">.</code>으로 나누어진 세개의 Base64-URL String이다. 이는 HTML과 HTTP 환경에서 쉽게 전달할 수 있다. XML기반 표준인 SAML보다 더 간결하다. <a href="https://jwt.io/#debugger-io">https://jwt.io/#debugger-io</a> 에서 인코딩과 디코딩 결과를 볼 수 있다.</p>
-<h2 id="동작-원리how-do-json-web-tokens-work" style="position:relative;"><a href="#%EB%8F%99%EC%9E%91-%EC%9B%90%EB%A6%AChow-do-json-web-tokens-work" aria-label="동작 원리how do json web tokens work permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>동작 원리(How do JSON Web Tokens work)</h2>
-<p>authentication시, 사용자가 자신의 credential로 성공적으로 로그인하면 JWT가 반환된다.  토큰은 credential이므로 보안 이슈를 예방하기 위해 주의해야 한다. 일반적으로 토큰을 필요 이상으로 오래 가지고 있으면 안 된다. 또한 민감한 세션 데이터를 브라우저 스토리지에 저장하면 안 된다. 보안이 취약하기 때문이다.</p>
 <blockquote>
-<p><a href="https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#storage-apis">HTML5 Security - Storage APIs</a>에 따르면 authentication이 가능한 정보는 피하는 것이 좋다고 한다. <!-- html 문서 찾아보기 --></p>
+<p>JWT만의 장점은 아니다. 세션과 쿠키를 사용해도 같은 효과를 낼 수 는 있다.</p>
 </blockquote>
+<ul>
+<li>서버 비용이 줄어든다.</li>
+<li>서버에 고정되는 것이 아니기 때문에 유연하다. 따라서 scale in/out에 대응하기 쉽고, SSO 구현에도 좋다.</li>
+</ul>
+</li>
+<li>
+<p>단점</p>
+<ul>
+<li>아무래도 보안적 측면이 좋다고 하기 힘들다. 토큰이 탈취되면 해당 토큰을 무력화하기 힘들 수 있다. 또한 대부분 JWS 방식이기 때문에 내용이 다 노출된다.</li>
+<li>추가적인 보안책을 마련하려면 결국 서버의 도움을 받아야 한다.</li>
+<li>세션처럼 사용한다면 클라이언트에서 업데이트하기 전까지 서버의 변동사항이 반영되지 않는다. 또한 토큰이 커지면 주고받아야 할 데이터의 양이</li>
+</ul>
+</li>
+</ul>
+<h2 id="다른-방법은" style="position:relative;"><a href="#%EB%8B%A4%EB%A5%B8-%EB%B0%A9%EB%B2%95%EC%9D%80" aria-label="다른 방법은 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>다른 방법은?</h2>
+<p>세션과 쿠키를 제외한 토큰 방식 중 JWT이외에도 SWT(Simple Web Token)과 SAML(Security Assertion Markup Language tokens)있다.</p>
+<blockquote>
+<p>SWT는 찾아도 잘 안 나온다. <a href="https://docs.microsoft.com/en-us/previous-versions/azure/azure-services/hh781551(v=azure.100)?redirectedfrom=MSDN#swt-example">SWT Example</a> 참고</p>
+</blockquote>
+<p>SWT는 Java의 properties와 유사한 형태다. key value형태로 사용하지만 JSON처럼 다양한 타입을 사용하기 힘들어 자유도가 떨어진다. 또한, SWT는 HS256만 사용할 수 있어 보다 강력한 보안이 요구될 때는 사용할 수 없다. 내 생각에 단순한 토큰으로는 문제가 없어 보인다. 그럼에도 잘 사용하지 않는 이유는 JSON이 더 다루기 쉽기 때문인 것으로 보인다.</p>
+<p>반면, SAML은 이름에서 유추할 수 있듯이 XML기반이다. 그래서 기본적으로 써줘야 할 게 많다. 즉 인코딩 시 크기가 매우 커서 불리하다. XML이 익숙한 사람에게는 가독성이 더 좋아 보일 수도 있지만, 역시나 JSON이 더 다루기 쉽다고 느끼는 사람이 훨씬 많은 것으로 생각된다. Ajax도 XML을 고려해서 만들었지만, 결국 대부분 JSON을 이용해서 사용하게 됐다.</p>
+<h2 id="마치며" style="position:relative;"><a href="#%EB%A7%88%EC%B9%98%EB%A9%B0" aria-label="마치며 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>마치며</h2>
+<p>명확하지 않은 설명이 싫어서 글을 쓰게 됐는데 나도 많이 건너뛰게 됐다. JWE, JWK, JWA도 있고, JWT만해도 중첩 구조나 protected, unprotected와 같이 다루지 않은 내용도 많다. 그럼에도 생각보다 글이 엄청 길어졌다.</p>
+<p>하지만 이런 부분까지 몰라도 라이브러리의 도움을 받으면 사용에 큰 어려움이 없을 수 있다. 그래서 간단한 컨셉만 나타낸 글이 많은 것 같고, 그만큼 사용하기 쉽게 잘 만든 것 같다. 그래서 인기도 많은가보다.</p>
 <hr>
 <h2 id="references" style="position:relative;"><a href="#references" aria-label="references permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>References</h2>
 <ul>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc7519">https://datatracker.ietf.org/doc/html/rfc7519</a></li>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc7515">https://datatracker.ietf.org/doc/html/rfc7515</a></li>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc7516">https://datatracker.ietf.org/doc/html/rfc7516</a></li>
+<li><a href="https://medium.facilelogin.com/jwt-jws-and-jwe-for-not-so-dummies-b63310d201a3">https://medium.facilelogin.com/jwt-jws-and-jwe-for-not-so-dummies-b63310d201a3</a></li>
+<li><a href="https://meetup.toast.com/posts/239">https://meetup.toast.com/posts/239</a></li>
 <li><a href="https://jwt.io/introduction">https://jwt.io/introduction</a></li>
+<li><a href="https://auth0.com/learn/json-web-tokens/">https://auth0.com/learn/json-web-tokens/</a></li>
+<li><a href="https://connect2id.com/products/nimbus-jose-jwt/algorithm-selection-guide">https://connect2id.com/products/nimbus-jose-jwt/algorithm-selection-guide</a></li>
 </ul></div><div class="ui vertical segment"><div class="ui label"><a href="/blog/tags/etc/">etc</a></div></div><div class="ui items"><div class="item"><div class="content"><div class="description">정대화</div><div class="meta">DaeHwa_Jeong@outlook.com</div></div></div></div><div class="ui vertical segment"><div></div></div><div class="ui vertical segment"><div class="ui centered padded grid"></div></div></div></div></div><div style="position:absolute;bottom:0;width:100%" class="ui inverted vertical segment"><div class="ui center aligned container"><p>Powered with <i aria-hidden="true" class="heart icon"></i> by Gatsby 2.0</p></div></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
   
   function gaOptout(){document.cookie=disableStr+'=true; expires=Thu, 31 Dec 2099 23:59:59 UTC;path=/',window[disableStr]=!0}var gaProperty='YOUR_GOOGLE_ANALYTICS_TRACKING_ID',disableStr='ga-disable-'+gaProperty;document.cookie.indexOf(disableStr+'=true')>-1&&(window[disableStr]=!0);
