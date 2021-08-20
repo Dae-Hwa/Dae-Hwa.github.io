@@ -1,7 +1,7 @@
 ---
-title: authentication, authorization, certification의 차이
-createdDate: "2021-08-17 18:41:48"
-updatedDate: "2021-08-17 18:41:48"
+title: authentication, authorization의 차이
+createdDate: "2021-08-11 18:41:48"
+updatedDate: "2021-08-11 18:41:48"
 author: 정대화
 tags:
   - etc
