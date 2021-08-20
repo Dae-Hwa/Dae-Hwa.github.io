@@ -8,95 +8,6 @@ tags:
 draft: false
 ---
 
-## TODO
-
-- [ ] MockMvc 분석
-  - 테스트 기본 인코딩이 이상함.
-- [ ] 잭슨 리퀘스트 바디 파싱 분석
-  - request시에 생성자 인식 못 함.
-- [ ] 스프링 절대경로 서버주소 어떻게 인식하는지(어떻게 nginx 주소를 알 수 있나)?
-- [ ] 우아한 객체지향
-- [ ] 이런 REST로 괜찮은가
-
-- 알고리즘
-  - [ ] [후위표기식](https://www.acmicpc.net/problem/1918)
-  - [ ] [스타트택시](https://www.acmicpc.net/problem/19238)
-  - [ ] [마법사 상어와 파이어볼](https://www.acmicpc.net/problem/20056)
-  - [ ] [행렬](https://www.acmicpc.net/problem/1080)
-  - [ ] [삼각달팽이](https://programmers.co.kr/learn/courses/30/lessons/68645)
-  - [ ] [문자열 폭발](https://www.acmicpc.net/problem/9935)
-  - [x] [문자열 압축](https://programmers.co.kr/learn/courses/30/lessons/60057)
-  - [x] [정수 제곱근 판별](https://programmers.co.kr/learn/courses/30/lessons/12934)
-  - [x] [실패율](https://programmers.co.kr/learn/courses/30/lessons/42889)
-  - [x] [제일 작은 수 제거하기](https://programmers.co.kr/learn/courses/30/lessons/12935)
-  - [x] [짝수와 홀수](https://programmers.co.kr/learn/courses/30/lessons/12937)
-  - [x] [최대공약수와 최소공배수](https://programmers.co.kr/learn/courses/30/lessons/12940)
-  - [x] [콜라츠 추측](https://programmers.co.kr/learn/courses/30/lessons/12943)
-  - [x] [하샤드 수](https://programmers.co.kr/learn/courses/30/lessons/12947)
-  - [x] [핸드폰 번호 가리기](https://programmers.co.kr/learn/courses/30/lessons/12948)
-  - [x] [행렬의 덧셈](https://programmers.co.kr/learn/courses/30/lessons/12950)
-  - [x] [x만큼 간격이 있는 n개의 숫자](https://programmers.co.kr/learn/courses/30/lessons/12954)
-  - [x] [직사각형 별찍기](https://programmers.co.kr/learn/courses/30/lessons/12969)
-
-- OS
-  - [ ] 4.6
-
-- [ ] AWS 강의듣기
-  - [ ] IAM 정리하기
-- [ ] 데브독스 넥스트
-- [ ] 엘라스틱서치
-- [ ] 서브넷 구분
-- [ ] s3 이용
-  - [ ] 구현하기
-- [ ] 깃헙액션으로 aws 배포
-- [ ] classForName 테스트
-- [ ] sticky session
-- [ ] clustered index
-- [ ] ACID
-- [ ] LocalDateTime.of nano sec
-- [ ] 트랜잭션
-- [ ] 영속성컨텍스트(와 트랜잭션)
-- [ ] ATDD
-- [ ] 인수테스트 데이터 삽입(초기화)
-- [ ] 인텔리j 이클립스 해쉬함수 생성 차이점
-- [ ] redis
-- [ ] redis repository equals와 어노테이션 확인해보기
-- [ ] ISO 7레이어
-
-- 블로그
-  - [ ] 디렉토리 구조 수정
-    - blogs/{yyyy}/{mm}/{postname}
-  - generator 수정
-    -[ ] 각 분류 별로(til, post 등) 작성할 수 있도록
-    -[ ] til에 날짜별 구분과 toc 추가해주도록
-  - [ ] 허스키 수정
-    - 현재 파이프라인이 제대로 동작하지 않아서 수정 날짜 후처리가 되지 않음
-
-- 면접
-
-  - 일했던 것 까지적으려면, 이력서에 사용했다고 명시한 기술에 대해 더 깊은 이해.
-    - [ ] 쿼츠, 스캐줄링
-    - [ ] 스프링 배치, 배치
-    - [ ] 멀티파트
-    - [ ] 멀티파트 리졸버
-    - [ ] 시큐어코딩
-    - [ ] 오라클이나 postgresql
-      - 기본적인 차이점이나 장단은 숙지
-      - 오라클 mysql 차이 공부하고 브라이언에게 다시 물어보기
-      - 공간쿼리까지 준비하면 더 좋을듯...
-
-  - 운영체제, 네트워크, 데이터베이스 등 컴퓨터공학 기본지식을 재점검
-    - “신입개발자 면접 문제” 찾아서 충분히 준비(특히 SOLID, ACID 같은 기본 키워드)
-    - 가장 좋아하는 정렬을 비롯하여 시간복잡도 log, n2 인 것들 각각 한가지씩은 숙지해 두시기 바랍니다(탐색도 알아두시면 좋습니다)
-
-  - [ ] 자기소개는 충실히 준비
-
-  - 화법 연습
-    - 모르는 부분에 키워드 중심으로 힌트를 요청하면 좋겠습니다(“~~에 대한 말씀이신가요? 제가 잘 모르겠는데 키워드 몇 개만 주실 수 있으실까요?“)
-    - 말을 확실하고 분명하게
-    - 말끝을 흐리지 않게 항상 조심  
-    - 분명한 어조로 답변
-
 ## 07.18
 
 ### 알고리즘 스터디
@@ -188,3 +99,92 @@ ATDD정리는 얼추 끝났다. 글 몇 개만 더 읽어보고 마무리하려�
 ### 알고리즘 스파르타
 
 12시부터 4시까지 알고리즘을 풀기로 했다. 혼자하면 집중이 흐트러지기 쉬운데 좋은 것 같다. 그동안 알고리즘 문제 정리가 잘 되지 않았었는데, 브랜치를 이용해 정리를 해보려고 레포를 새로 팠다. 지금까지는 나쁘지 않은 것 같다.
+
+## TODO
+
+- [ ] MockMvc 분석
+  - 테스트 기본 인코딩이 이상함.
+- [ ] 잭슨 리퀘스트 바디 파싱 분석
+  - request시에 생성자 인식 못 함.
+- [ ] 스프링 절대경로 서버주소 어떻게 인식하는지(어떻게 nginx 주소를 알 수 있나)?
+- [ ] 우아한 객체지향
+- [ ] 이런 REST로 괜찮은가
+
+- 알고리즘
+  - [ ] [후위표기식](https://www.acmicpc.net/problem/1918)
+  - [ ] [스타트택시](https://www.acmicpc.net/problem/19238)
+  - [ ] [마법사 상어와 파이어볼](https://www.acmicpc.net/problem/20056)
+  - [ ] [행렬](https://www.acmicpc.net/problem/1080)
+  - [ ] [삼각달팽이](https://programmers.co.kr/learn/courses/30/lessons/68645)
+  - [ ] [문자열 폭발](https://www.acmicpc.net/problem/9935)
+  - [x] [문자열 압축](https://programmers.co.kr/learn/courses/30/lessons/60057)
+  - [x] [정수 제곱근 판별](https://programmers.co.kr/learn/courses/30/lessons/12934)
+  - [x] [실패율](https://programmers.co.kr/learn/courses/30/lessons/42889)
+  - [x] [제일 작은 수 제거하기](https://programmers.co.kr/learn/courses/30/lessons/12935)
+  - [x] [짝수와 홀수](https://programmers.co.kr/learn/courses/30/lessons/12937)
+  - [x] [최대공약수와 최소공배수](https://programmers.co.kr/learn/courses/30/lessons/12940)
+  - [x] [콜라츠 추측](https://programmers.co.kr/learn/courses/30/lessons/12943)
+  - [x] [하샤드 수](https://programmers.co.kr/learn/courses/30/lessons/12947)
+  - [x] [핸드폰 번호 가리기](https://programmers.co.kr/learn/courses/30/lessons/12948)
+  - [x] [행렬의 덧셈](https://programmers.co.kr/learn/courses/30/lessons/12950)
+  - [x] [x만큼 간격이 있는 n개의 숫자](https://programmers.co.kr/learn/courses/30/lessons/12954)
+  - [x] [직사각형 별찍기](https://programmers.co.kr/learn/courses/30/lessons/12969)
+
+- OS
+  - [ ] 4.6
+
+- [ ] AWS 강의듣기
+  - [ ] IAM 정리하기
+- [ ] 데브독스 넥스트
+- [ ] 엘라스틱서치
+- [ ] 서브넷 구분
+- [ ] s3 이용
+  - [ ] 구현하기
+- [ ] 깃헙액션으로 aws 배포
+- [ ] classForName 테스트
+- [ ] sticky session
+- [ ] clustered index
+- [ ] ACID
+- [ ] LocalDateTime.of nano sec
+- [ ] 트랜잭션
+- [ ] 영속성컨텍스트(와 트랜잭션)
+- [ ] ATDD
+- [ ] 인수테스트 데이터 삽입(초기화)
+- [ ] 인텔리j 이클립스 해쉬함수 생성 차이점
+- [ ] redis
+- [ ] redis repository equals와 어노테이션 확인해보기
+- [ ] ISO 7레이어
+
+- 블로그
+  - [ ] 디렉토리 구조 수정
+    - blogs/{yyyy}/{mm}/{postname}
+  - generator 수정
+    -[ ] 각 분류 별로(til, post 등) 작성할 수 있도록
+    -[ ] til에 날짜별 구분과 toc 추가해주도록
+  - [ ] 허스키 수정
+    - 현재 파이프라인이 제대로 동작하지 않아서 수정 날짜 후처리가 되지 않음
+
+- 면접
+
+  - 일했던 것 까지적으려면, 이력서에 사용했다고 명시한 기술에 대해 더 깊은 이해.
+    - [ ] 쿼츠, 스캐줄링
+    - [ ] 스프링 배치, 배치
+    - [ ] 멀티파트
+    - [ ] 멀티파트 리졸버
+    - [ ] 시큐어코딩
+    - [ ] 오라클이나 postgresql
+      - 기본적인 차이점이나 장단은 숙지
+      - 오라클 mysql 차이 공부하고 브라이언에게 다시 물어보기
+      - 공간쿼리까지 준비하면 더 좋을듯...
+
+  - 운영체제, 네트워크, 데이터베이스 등 컴퓨터공학 기본지식을 재점검
+    - “신입개발자 면접 문제” 찾아서 충분히 준비(특히 SOLID, ACID 같은 기본 키워드)
+    - 가장 좋아하는 정렬을 비롯하여 시간복잡도 log, n2 인 것들 각각 한가지씩은 숙지해 두시기 바랍니다(탐색도 알아두시면 좋습니다)
+
+  - [ ] 자기소개는 충실히 준비
+
+  - 화법 연습
+    - 모르는 부분에 키워드 중심으로 힌트를 요청하면 좋겠습니다(“~~에 대한 말씀이신가요? 제가 잘 모르겠는데 키워드 몇 개만 주실 수 있으실까요?“)
+    - 말을 확실하고 분명하게
+    - 말끝을 흐리지 않게 항상 조심  
+    - 분명한 어조로 답변

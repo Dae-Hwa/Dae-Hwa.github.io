@@ -8,36 +8,6 @@ tags:
 draft: false
 ---
 
-## TODO
-
-- [ ] MockMvc 분석
-- [ ] 잭슨 리퀘스트 바디 파싱 분석
-- [ ] 스프링 절대경로 서버주소 어떻게 인식하는지(어떻게 nginx 주소를 알 수 있나)?
-- [ ] 우아한 객체지향
-- [ ] 이런 REST로 괜찮은가
-- 알고리즘
-  - [ ] [후위표기식](https://www.acmicpc.net/problem/1918)
-  - [ ] [스타트택시](https://www.acmicpc.net/problem/19238)
-  - [ ] [마법사 상어와 파이어볼](https://www.acmicpc.net/problem/20056)
-  - [ ] [행렬](https://www.acmicpc.net/problem/1080)
-  - [x] [순위 검색](https://programmers.co.kr/learn/courses/30/lessons/72412)
-  - [x] [전화번호 목록](https://www.acmicpc.net/problem/5052)
-  - [ ] [메뉴 리뉴얼](https://programmers.co.kr/learn/courses/30/lessons/72411)
-
-- [ ] 객체지향 정리(호눅스 과제)
-- [ ] AWS 강의듣기
-  - [x] IAM
-  - [ ] IAM 정리하기
-- [ ] 데브독스 넥스트
-
-- [ ] 엘라스틱서치
-- [ ] 서브넷 구분
-- [ ] s3 이용
-  - [x] 이용방법 확인
-  - [ ] 구현하기
-- [ ] 깃헙액션으로 aws 배포
-- [ ] classForName 테스트
-
 ## 06.3
 
 - 알고리즘
@@ -83,3 +53,33 @@ draft: false
 - 조건 계산을 잘 해보자. 대충 생각했다가 조회에서 막혔다. <https://programmers.co.kr/learn/courses/30/lessons/72412> 시험 칠 때 아무리 생각해도 풀지 못했는데, 그 것보다도 마지막에 lower bound를 구해야 한다는 것을 전혀 인지하지 못했다. lower bound와 upper bound. 이분 탐색으로 쉽게 구현이 가능하나 마지막 조건에서 생각을 조금 해봐야한다. 문제 몇 개 풀어봐야 할 것 같다.
 
 - 이번 주는 til을 좀 게으르게 썼다... 다음 주 부터는 다시 제대로 쓰자.
+
+## TODO
+
+- [ ] MockMvc 분석
+- [ ] 잭슨 리퀘스트 바디 파싱 분석
+- [ ] 스프링 절대경로 서버주소 어떻게 인식하는지(어떻게 nginx 주소를 알 수 있나)?
+- [ ] 우아한 객체지향
+- [ ] 이런 REST로 괜찮은가
+- 알고리즘
+  - [ ] [후위표기식](https://www.acmicpc.net/problem/1918)
+  - [ ] [스타트택시](https://www.acmicpc.net/problem/19238)
+  - [ ] [마법사 상어와 파이어볼](https://www.acmicpc.net/problem/20056)
+  - [ ] [행렬](https://www.acmicpc.net/problem/1080)
+  - [x] [순위 검색](https://programmers.co.kr/learn/courses/30/lessons/72412)
+  - [x] [전화번호 목록](https://www.acmicpc.net/problem/5052)
+  - [ ] [메뉴 리뉴얼](https://programmers.co.kr/learn/courses/30/lessons/72411)
+
+- [ ] 객체지향 정리(호눅스 과제)
+- [ ] AWS 강의듣기
+  - [x] IAM
+  - [ ] IAM 정리하기
+- [ ] 데브독스 넥스트
+
+- [ ] 엘라스틱서치
+- [ ] 서브넷 구분
+- [ ] s3 이용
+  - [x] 이용방법 확인
+  - [ ] 구현하기
+- [ ] 깃헙액션으로 aws 배포
+- [ ] classForName 테스트

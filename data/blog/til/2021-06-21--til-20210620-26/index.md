@@ -8,33 +8,6 @@ tags:
 draft: false
 ---
 
-## TODO
-
-- [ ] MockMvc 분석
-- [ ] 잭슨 리퀘스트 바디 파싱 분석
-- [ ] 스프링 절대경로 서버주소 어떻게 인식하는지(어떻게 nginx 주소를 알 수 있나)?
-- [ ] 우아한 객체지향
-- [ ] 이런 REST로 괜찮은가
-- 알고리즘
-  - [ ] [후위표기식](https://www.acmicpc.net/problem/1918)
-  - [ ] [스타트택시](https://www.acmicpc.net/problem/19238)
-  - [ ] [마법사 상어와 파이어볼](https://www.acmicpc.net/problem/20056)
-  - [ ] [행렬](https://www.acmicpc.net/problem/1080)
-  - [x] [메뉴 리뉴얼](https://programmers.co.kr/learn/courses/30/lessons/72411)
-  - [x] [신규 아이디 추천](https://programmers.co.kr/learn/courses/30/lessons/72410)
-  - [ ] [행렬 테두리 회전하기](https://programmers.co.kr/learn/courses/30/lessons/77485)\
-  - [ ] [키패드 누르기](https://programmers.co.kr/learn/courses/30/lessons/67256)
-
-- [ ] AWS 강의듣기
-  - [ ] IAM 정리하기
-- [ ] 데브독스 넥스트(7월 첫주)
-- [ ] 엘라스틱서치
-- [ ] 서브넷 구분
-- [ ] s3 이용
-  - [ ] 구현하기
-- [ ] 깃헙액션으로 aws 배포
-- [ ] classForName 테스트
-
 ## 06.20
 
 - 맵으로 카운팅 하는 문제를 풀다 맵을 정렬 하는 방법을 생각해봤다. 엔트리셋은 셋이니까 리스트로 바꿀 수 있다. 이 점을 이용하면 엔트리의 리스트를 뽑아내고 소팅할 수 있다.
@@ -78,3 +51,31 @@ draft: false
 - 객체 필드를 recursive하게 검사해주는 메소드가 있었다.. 왜 찾아볼 생각을 안 했을까. 하지만 그럼에도 문제가 하나 있었다. 현재는 id만 업데이트 하면 해당 객체가 업데이트 되었다고 판단하는 식으로 로직이 짜여져 있다. 이럴 경우 해당 객체를 재귀적으로 판단하는 것이 아닌, id로 판단해야된다. 재귀적으로 판단을 하게되면 해당 부분들에서 같은 객체가 아니라 판단하게 된다. id를 제외한 필드들이 다르기 때문이다. 때문에 결과적으로 검증을 위한 로직이 추가로 생기긴 했다. 그런데 이 부분도 프레임워크 단에서 처리할 수 있는 방법이 있을 것 같은데, 아직 그렇게 복잡하지는 않으니 이 선에서 끝내려 한다.
 
 - 마지막 프로젝트가 끝나며 코쿼도 끝났다. 아쉽긴 하지만 예전처럼 뭘 해야될지 혼란스럽거나 하지 않아서 좋다. 조만간 후기도 써보자.
+
+
+## TODO
+
+- [ ] MockMvc 분석
+- [ ] 잭슨 리퀘스트 바디 파싱 분석
+- [ ] 스프링 절대경로 서버주소 어떻게 인식하는지(어떻게 nginx 주소를 알 수 있나)?
+- [ ] 우아한 객체지향
+- [ ] 이런 REST로 괜찮은가
+- 알고리즘
+  - [ ] [후위표기식](https://www.acmicpc.net/problem/1918)
+  - [ ] [스타트택시](https://www.acmicpc.net/problem/19238)
+  - [ ] [마법사 상어와 파이어볼](https://www.acmicpc.net/problem/20056)
+  - [ ] [행렬](https://www.acmicpc.net/problem/1080)
+  - [x] [메뉴 리뉴얼](https://programmers.co.kr/learn/courses/30/lessons/72411)
+  - [x] [신규 아이디 추천](https://programmers.co.kr/learn/courses/30/lessons/72410)
+  - [ ] [행렬 테두리 회전하기](https://programmers.co.kr/learn/courses/30/lessons/77485)\
+  - [ ] [키패드 누르기](https://programmers.co.kr/learn/courses/30/lessons/67256)
+
+- [ ] AWS 강의듣기
+  - [ ] IAM 정리하기
+- [ ] 데브독스 넥스트(7월 첫주)
+- [ ] 엘라스틱서치
+- [ ] 서브넷 구분
+- [ ] s3 이용
+  - [ ] 구현하기
+- [ ] 깃헙액션으로 aws 배포
+- [ ] classForName 테스트

@@ -8,56 +8,6 @@ tags:
 draft: false
 ---
 
-## TODO
-
-- [ ] MockMvc 분석
-  - 테스트 기본 인코딩이 이상함.
-- [ ] 잭슨 리퀘스트 바디 파싱 분석
-  - request시에 생성자 인식 못 함.
-- [ ] 스프링 절대경로 서버주소 어떻게 인식하는지(어떻게 nginx 주소를 알 수 있나)?
-- [ ] 우아한 객체지향
-- [ ] 이런 REST로 괜찮은가
-
-- 알고리즘
-  - [ ] [후위표기식](https://www.acmicpc.net/problem/1918)
-  - [ ] [스타트택시](https://www.acmicpc.net/problem/19238)
-  - [ ] [마법사 상어와 파이어볼](https://www.acmicpc.net/problem/20056)
-  - [ ] [행렬](https://www.acmicpc.net/problem/1080)
-  - [x] [행렬 테두리 회전하기](https://programmers.co.kr/learn/courses/30/lessons/77485)
-  - [x] [키패드 누르기](https://programmers.co.kr/learn/courses/30/lessons/67256)
-  - [x] [땅따먹기](https://programmers.co.kr/learn/courses/30/lessons/12913)
-  - [ ] [삼각달팽이](https://programmers.co.kr/learn/courses/30/lessons/68645)
-  - [ ] [단어수학](https://www.acmicpc.net/problem/1339)
-  - [ ] [다단계칫솔판매](https://programmers.co.kr/learn/courses/30/lessons/77486)
-
-- OS
-  - [ ] 4.5 + 문서 정리
-    - [x] 기본 개요 정리
-    - [ ] 추가 내용 정리
-  - [ ] 4.6
-
-- [ ] AWS 강의듣기
-  - [ ] IAM 정리하기
-- [ ] 데브독스 넥스트(7월 첫주)
-- [ ] 엘라스틱서치
-- [ ] 서브넷 구분
-- [ ] s3 이용
-  - [ ] 구현하기
-- [ ] 깃헙액션으로 aws 배포
-- [ ] classForName 테스트
-- [ ] sticky session
-- [ ] clustered index
-- [ ] ACID
-
-- 블로그
-  - [ ] 디렉토리 구조 수정
-    - blogs/{yyyy}/{mm}/{postname}
-  - generator 수정
-    -[ ] 각 분류 별로(til, post 등) 작성할 수 있도록
-    -[ ] til에 날짜별 구분과 toc 추가해주도록
-  - [ ] 허스키 수정
-    - 현재 파이프라인이 제대로 동작하지 않아서 수정 날짜 후처리가 되지 않음
-
 ## 06.27
 
 - 키패드 누르기가 통과를 못 해서 리뷰를 해보니, double때문에 판단이 제대로 되지 않는 것 같다는 생각이 들었다. 두 점 사이의 거리를 계산해야되는데, 슬빈님 코드를 보고 다시 생각해보니 정확한 거리를 측정하는 것이 아니기 때문에 거리 공식까지 필요없고 x축 거리와 y축 거리를 합친 만큼을 비교하면 되는 것이었다. 문제를 다시 보니 문제에도 힌트가 있었는데, 아쉽다.
@@ -149,3 +99,53 @@ api도 마찬가지다. 맨 처음 생겨난 os의 측면에서 얘기하면 개
   조금 더 범위를 좁혀서 업데이트의 경우를 생각해보자. 만약 실제로는 들어올 수 있지만 사용되어서는 안 되는 값이 들어왔는데, 이를 예외처리하지 않는다면 아무런 변화가 생기지 않을 것이다. 물론 어떻게 짜느냐에 따라 다르겠지만 나의 경우는 그렇다. 이런 경우를 t/f로 표현해줘야 한다는 생각이 들었다. 처음에는 save나 delete 개수 등을 카운팅해야하나? 하는 생각도 해봤지만 해당 경우는 예외로 처리되어야 하는 것 같고, 저런 식으로 논리적인 부분을 따지는 것이 맞는 것 같다. 해당 기능이 실행된 것이 맞는지.
 
 - 스웨거 없이 개발해보니 컨트롤러 단위테스트가 왜 필요한지 감이 좀 오는 것 같다. 목업 api에 스웨거를 달아놓으면 비록 수동이지만 컨트롤러에 대한 단위테스트가 가능했던 것이다. 그렇게 생각을 하니 어떻게 테스트를 해야할지 명확해졌는데, 요청, 응답 잘 되는지, 헤더나 컨텐츠 타입 등 검증. http status 검증. 에러 처리 검증이나 응답 데이터 형식이 내가 생각했던 것과 같은지(정적인 값이면 비교해보는 것도 좋겠지만, 여기서는 구조와 타입같은게 더 중요한 것 같다). 등이다.
+
+## TODO
+
+- [ ] MockMvc 분석
+  - 테스트 기본 인코딩이 이상함.
+- [ ] 잭슨 리퀘스트 바디 파싱 분석
+  - request시에 생성자 인식 못 함.
+- [ ] 스프링 절대경로 서버주소 어떻게 인식하는지(어떻게 nginx 주소를 알 수 있나)?
+- [ ] 우아한 객체지향
+- [ ] 이런 REST로 괜찮은가
+
+- 알고리즘
+  - [ ] [후위표기식](https://www.acmicpc.net/problem/1918)
+  - [ ] [스타트택시](https://www.acmicpc.net/problem/19238)
+  - [ ] [마법사 상어와 파이어볼](https://www.acmicpc.net/problem/20056)
+  - [ ] [행렬](https://www.acmicpc.net/problem/1080)
+  - [x] [행렬 테두리 회전하기](https://programmers.co.kr/learn/courses/30/lessons/77485)
+  - [x] [키패드 누르기](https://programmers.co.kr/learn/courses/30/lessons/67256)
+  - [x] [땅따먹기](https://programmers.co.kr/learn/courses/30/lessons/12913)
+  - [ ] [삼각달팽이](https://programmers.co.kr/learn/courses/30/lessons/68645)
+  - [ ] [단어수학](https://www.acmicpc.net/problem/1339)
+  - [ ] [다단계칫솔판매](https://programmers.co.kr/learn/courses/30/lessons/77486)
+
+- OS
+  - [ ] 4.5 + 문서 정리
+    - [x] 기본 개요 정리
+    - [ ] 추가 내용 정리
+  - [ ] 4.6
+
+- [ ] AWS 강의듣기
+  - [ ] IAM 정리하기
+- [ ] 데브독스 넥스트(7월 첫주)
+- [ ] 엘라스틱서치
+- [ ] 서브넷 구분
+- [ ] s3 이용
+  - [ ] 구현하기
+- [ ] 깃헙액션으로 aws 배포
+- [ ] classForName 테스트
+- [ ] sticky session
+- [ ] clustered index
+- [ ] ACID
+
+- 블로그
+  - [ ] 디렉토리 구조 수정
+    - blogs/{yyyy}/{mm}/{postname}
+  - generator 수정
+    -[ ] 각 분류 별로(til, post 등) 작성할 수 있도록
+    -[ ] til에 날짜별 구분과 toc 추가해주도록
+  - [ ] 허스키 수정
+    - 현재 파이프라인이 제대로 동작하지 않아서 수정 날짜 후처리가 되지 않음
