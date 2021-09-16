@@ -5,7 +5,7 @@ updatedDate: "2021-07-16 12:46:45"
 author: 정대화
 tags:
   - algorithm
-draft: false
+draft: true
 ---
 
 ## 최대공약수(Greatest Common Divisor; GCD)

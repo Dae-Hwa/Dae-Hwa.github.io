@@ -62,7 +62,7 @@ class SomeClassTest {
 [@MethodSource - JUnit 5 User Guide
 ](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests-sources-MethodSource) 에 나와있는 설명을 보고 따라하면 금방 익힐 수 있을 것이다.
 
-> https://www.baeldung.com/parameterized-tests-junit-5 에도 설명이 잘 나와있다.
+> <https://www.baeldung.com/parameterized-tests-junit-5> 에도 설명이 잘 나와있다.
 
 ## 내 프로젝트에 설정해보기
 

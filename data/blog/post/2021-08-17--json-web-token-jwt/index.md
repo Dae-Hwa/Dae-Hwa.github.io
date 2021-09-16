@@ -5,7 +5,7 @@ updatedDate: "2021-08-17 19:21:59"
 author: 정대화
 tags:
   - etc
-draft: false
+draft: true
 ---
 
 ## 들어가기에 앞서
